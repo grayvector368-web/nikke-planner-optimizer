@@ -522,9 +522,7 @@ def solve_ilp(
     raw: Dict[Tuple[str, int], pulp.LpAffineExpression] = {}
     for b in boss_names:
         for l in levels:
-            raw[b, l] = pulp.lpSum(
-                teams[i].damage * x[i, l] for i in teams_for[b]
-            )
+            raw[b, l] = pulp.lpSum(teams[i].damage * x[i, l] for i in teams_for[b])
 
     # Effective damage per (boss, level) - capped at that level's HP
     e: Dict[Tuple[str, int], pulp.LpVariable] = {}
@@ -571,11 +569,18 @@ def solve_ilp(
         prob += es[b, 3] <= hp3 * g3
 
     # Objective: maximize weighted scored effective damage
-    prob += pulp.lpSum(
-        weights[l - 1] * es[b, l] for b in boss_names for l in levels
-    )
+    prob += pulp.lpSum(weights[l - 1] * es[b, l] for b in boss_names for l in levels)
 
-    prob.solve(pulp.PULP_CBC_CMD(timeLimit=time_limit, msg=0, gapRel=0))
+    # Prefer system CBC binary (e.g. installed via apt coinor-cbc on Linux/Streamlit Cloud)
+    # over PuLP's bundled binary, which may not be executable in restricted environments.
+    import shutil as _shutil
+
+    _cbc_path = _shutil.which("cbc")
+    if _cbc_path:
+        _solver = pulp.COIN_CMD(path=_cbc_path, timeLimit=time_limit, msg=0, gapRel=0)
+    else:
+        _solver = pulp.PULP_CBC_CMD(timeLimit=time_limit, msg=0, gapRel=0)
+    prob.solve(_solver)
 
     if prob.status not in (1, -2):
         print(
