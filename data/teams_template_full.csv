@@ -1,0 +1,353 @@
+member,boss_name,damage,unit1,unit2,unit3,unit4,unit5
+David,Material H,47000000000,Siren,Nayuta,SBS,Lib,Velvet
+David,Land Eater,22000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+David,Rebuild Fingers,24000000000,Crown,Siren,Rapi,Mihara,Priv
+David,Plate,19000000000,Crown,Siren,SWha,Priv,Elegg
+David,Porter,21000000000,Grave,Liter,Rapi,Raven,Summer Helm
+David,Land Eater,20000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+David,Rebuild Fingers,21000000000,Rapi,Brid,Thelm,Diesel,Mihara
+David,Rebuild Fingers,22000000000,Crown,Siren,Rapi,Mihara,Mast
+David,Plate,18000000000,Crown,Moran,SWha,Priv,Thelm
+David,Porter,20000000000,Crown,Moran,Rapi,Thelm,Mast
+David,Porter,19000000000,Crown,Siren,Rapi,Thelm,Priv
+Alice,Material H,35000000000,Siren,Nayuta,SBS,Lib,Velvet
+Alice,Land Eater,18000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Alice,Land Eater,17000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Alice,Rebuild Fingers,20000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Alice,Rebuild Fingers,19000000000,Crown,Siren,Rapi,Mihara,Mast
+Alice,Rebuild Fingers,18000000000,Crown,Siren,Rapi,Mihara,Priv
+Alice,Plate,26000000000,Crown,Moran,SWha,Priv,Thelm
+Alice,Plate,24000000000,Crown,Siren,SWha,Priv,Elegg
+Alice,Porter,23000000000,Crown,Siren,Rapi,Thelm,Priv
+Alice,Porter,22000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Alice,Porter,21000000000,Crown,Moran,Rapi,Thelm,Mast
+Bob,Material H,42000000000,Siren,Nayuta,SBS,Lib,Velvet
+Bob,Land Eater,25000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Bob,Land Eater,24000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Bob,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Mast
+Bob,Rebuild Fingers,16000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Bob,Rebuild Fingers,16000000000,Crown,Siren,Rapi,Mihara,Priv
+Bob,Plate,22000000000,Crown,Siren,SWha,Priv,Elegg
+Bob,Plate,21000000000,Crown,Moran,SWha,Priv,Thelm
+Bob,Porter,19000000000,Crown,Moran,Rapi,Thelm,Mast
+Bob,Porter,18000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Bob,Porter,17000000000,Crown,Siren,Rapi,Thelm,Priv
+Carol,Material H,38000000000,Siren,Nayuta,SBS,Lib,Velvet
+Carol,Land Eater,16000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Carol,Land Eater,15000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Carol,Rebuild Fingers,28000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Carol,Rebuild Fingers,27000000000,Crown,Siren,Rapi,Mihara,Mast
+Carol,Rebuild Fingers,26000000000,Crown,Siren,Rapi,Mihara,Priv
+Carol,Plate,21000000000,Crown,Moran,SWha,Priv,Thelm
+Carol,Plate,20000000000,Crown,Siren,SWha,Priv,Elegg
+Carol,Porter,24000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Carol,Porter,23000000000,Crown,Moran,Rapi,Thelm,Mast
+Carol,Porter,22000000000,Crown,Siren,Rapi,Thelm,Priv
+Emma,Material H,44000000000,Siren,Nayuta,SBS,Lib,Velvet
+Emma,Land Eater,20000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Emma,Land Eater,19000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Emma,Rebuild Fingers,23000000000,Crown,Siren,Rapi,Mihara,Priv
+Emma,Rebuild Fingers,22000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Emma,Rebuild Fingers,21000000000,Crown,Siren,Rapi,Mihara,Mast
+Emma,Plate,18000000000,Crown,Siren,SWha,Priv,Elegg
+Emma,Plate,17000000000,Crown,Moran,SWha,Priv,Thelm
+Emma,Porter,27000000000,Crown,Moran,Rapi,Thelm,Mast
+Emma,Porter,26000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Emma,Porter,25000000000,Crown,Siren,Rapi,Thelm,Priv
+Frank,Material H,31000000000,Siren,Nayuta,SBS,Lib,Velvet
+Frank,Land Eater,27000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Frank,Land Eater,26000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Frank,Rebuild Fingers,19000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Frank,Rebuild Fingers,18000000000,Crown,Siren,Rapi,Mihara,Mast
+Frank,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Priv
+Frank,Plate,25000000000,Crown,Moran,SWha,Priv,Thelm
+Frank,Plate,24000000000,Crown,Siren,SWha,Priv,Elegg
+Frank,Porter,16000000000,Crown,Siren,Rapi,Thelm,Priv
+Frank,Porter,15000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Frank,Porter,15000000000,Crown,Moran,Rapi,Thelm,Mast
+Grace,Material H,49000000000,Siren,Nayuta,SBS,Lib,Velvet
+Grace,Land Eater,23000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Grace,Land Eater,22000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Grace,Rebuild Fingers,16000000000,Crown,Siren,Rapi,Mihara,Mast
+Grace,Rebuild Fingers,15000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Grace,Rebuild Fingers,15000000000,Crown,Siren,Rapi,Mihara,Priv
+Grace,Plate,29000000000,Crown,Siren,SWha,Priv,Elegg
+Grace,Plate,28000000000,Crown,Moran,SWha,Priv,Thelm
+Grace,Porter,20000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Grace,Porter,19000000000,Crown,Moran,Rapi,Thelm,Mast
+Grace,Porter,18000000000,Crown,Siren,Rapi,Thelm,Priv
+Henry,Material H,36000000000,Siren,Nayuta,SBS,Lib,Velvet
+Henry,Land Eater,19000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Henry,Land Eater,18000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Henry,Rebuild Fingers,26000000000,Crown,Siren,Rapi,Mihara,Priv
+Henry,Rebuild Fingers,25000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Henry,Rebuild Fingers,24000000000,Crown,Siren,Rapi,Mihara,Mast
+Henry,Plate,17000000000,Crown,Moran,SWha,Priv,Thelm
+Henry,Plate,16000000000,Crown,Siren,SWha,Priv,Elegg
+Henry,Porter,22000000000,Crown,Moran,Rapi,Thelm,Mast
+Henry,Porter,21000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Henry,Porter,20000000000,Crown,Siren,Rapi,Thelm,Priv
+Isabel,Material H,43000000000,Siren,Nayuta,SBS,Lib,Velvet
+Isabel,Land Eater,28000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Isabel,Land Eater,27000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Isabel,Rebuild Fingers,21000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Isabel,Rebuild Fingers,20000000000,Crown,Siren,Rapi,Mihara,Mast
+Isabel,Rebuild Fingers,19000000000,Crown,Siren,Rapi,Mihara,Priv
+Isabel,Plate,24000000000,Crown,Siren,SWha,Priv,Elegg
+Isabel,Plate,23000000000,Crown,Moran,SWha,Priv,Thelm
+Isabel,Porter,18000000000,Crown,Siren,Rapi,Thelm,Priv
+Isabel,Porter,17000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Isabel,Porter,16000000000,Crown,Moran,Rapi,Thelm,Mast
+Jack,Material H,39000000000,Siren,Nayuta,SBS,Lib,Velvet
+Jack,Land Eater,17000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Jack,Land Eater,16000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Jack,Rebuild Fingers,29000000000,Crown,Siren,Rapi,Mihara,Mast
+Jack,Rebuild Fingers,28000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Jack,Rebuild Fingers,27000000000,Crown,Siren,Rapi,Mihara,Priv
+Jack,Plate,20000000000,Crown,Moran,SWha,Priv,Thelm
+Jack,Plate,19000000000,Crown,Siren,SWha,Priv,Elegg
+Jack,Porter,25000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Jack,Porter,24000000000,Crown,Moran,Rapi,Thelm,Mast
+Jack,Porter,23000000000,Crown,Siren,Rapi,Thelm,Priv
+Kate,Material H,46000000000,Siren,Nayuta,SBS,Lib,Velvet
+Kate,Land Eater,24000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Kate,Land Eater,23000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Kate,Rebuild Fingers,18000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Kate,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Mast
+Kate,Rebuild Fingers,16000000000,Crown,Siren,Rapi,Mihara,Priv
+Kate,Plate,28000000000,Crown,Siren,SWha,Priv,Elegg
+Kate,Plate,27000000000,Crown,Moran,SWha,Priv,Thelm
+Kate,Porter,16000000000,Crown,Moran,Rapi,Thelm,Mast
+Kate,Porter,15000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Kate,Porter,15000000000,Crown,Siren,Rapi,Thelm,Priv
+Leo,Material H,33000000000,Siren,Nayuta,SBS,Lib,Velvet
+Leo,Land Eater,21000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Leo,Land Eater,20000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Leo,Rebuild Fingers,27000000000,Crown,Siren,Rapi,Mihara,Priv
+Leo,Rebuild Fingers,26000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Leo,Rebuild Fingers,25000000000,Crown,Siren,Rapi,Mihara,Mast
+Leo,Plate,16000000000,Crown,Moran,SWha,Priv,Thelm
+Leo,Plate,15000000000,Crown,Siren,SWha,Priv,Elegg
+Leo,Porter,23000000000,Crown,Siren,Rapi,Thelm,Priv
+Leo,Porter,22000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Leo,Porter,21000000000,Crown,Moran,Rapi,Thelm,Mast
+Maya,Material H,41000000000,Siren,Nayuta,SBS,Lib,Velvet
+Maya,Land Eater,26000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Maya,Land Eater,25000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Maya,Rebuild Fingers,22000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Maya,Rebuild Fingers,21000000000,Crown,Siren,Rapi,Mihara,Mast
+Maya,Rebuild Fingers,20000000000,Crown,Siren,Rapi,Mihara,Priv
+Maya,Plate,19000000000,Crown,Siren,SWha,Priv,Elegg
+Maya,Plate,18000000000,Crown,Moran,SWha,Priv,Thelm
+Maya,Porter,28000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Maya,Porter,27000000000,Crown,Moran,Rapi,Thelm,Mast
+Maya,Porter,26000000000,Crown,Siren,Rapi,Thelm,Priv
+Nathan,Material H,37000000000,Siren,Nayuta,SBS,Lib,Velvet
+Nathan,Land Eater,16000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Nathan,Land Eater,15000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Nathan,Rebuild Fingers,25000000000,Crown,Siren,Rapi,Mihara,Mast
+Nathan,Rebuild Fingers,24000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Nathan,Rebuild Fingers,23000000000,Crown,Siren,Rapi,Mihara,Priv
+Nathan,Plate,23000000000,Crown,Moran,SWha,Priv,Thelm
+Nathan,Plate,22000000000,Crown,Siren,SWha,Priv,Elegg
+Nathan,Porter,20000000000,Crown,Moran,Rapi,Thelm,Mast
+Nathan,Porter,19000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Nathan,Porter,18000000000,Crown,Siren,Rapi,Thelm,Priv
+Olivia,Material H,48000000000,Siren,Nayuta,SBS,Lib,Velvet
+Olivia,Land Eater,22000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Olivia,Land Eater,21000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Olivia,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Priv
+Olivia,Rebuild Fingers,16000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Olivia,Rebuild Fingers,16000000000,Crown,Siren,Rapi,Mihara,Mast
+Olivia,Plate,27000000000,Crown,Siren,SWha,Priv,Elegg
+Olivia,Plate,26000000000,Crown,Moran,SWha,Priv,Thelm
+Olivia,Porter,19000000000,Crown,Siren,Rapi,Thelm,Priv
+Olivia,Porter,18000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Olivia,Porter,17000000000,Crown,Moran,Rapi,Thelm,Mast
+Peter,Material H,34000000000,Siren,Nayuta,SBS,Lib,Velvet
+Peter,Land Eater,29000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Peter,Land Eater,28000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Peter,Rebuild Fingers,20000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Peter,Rebuild Fingers,19000000000,Crown,Siren,Rapi,Mihara,Mast
+Peter,Rebuild Fingers,18000000000,Crown,Siren,Rapi,Mihara,Priv
+Peter,Plate,18000000000,Crown,Moran,SWha,Priv,Thelm
+Peter,Plate,17000000000,Crown,Siren,SWha,Priv,Elegg
+Peter,Porter,26000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Peter,Porter,25000000000,Crown,Moran,Rapi,Thelm,Mast
+Peter,Porter,24000000000,Crown,Siren,Rapi,Thelm,Priv
+Quinn,Material H,45000000000,Siren,Nayuta,SBS,Lib,Velvet
+Quinn,Land Eater,18000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Quinn,Land Eater,17000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Quinn,Rebuild Fingers,24000000000,Crown,Siren,Rapi,Mihara,Mast
+Quinn,Rebuild Fingers,23000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Quinn,Rebuild Fingers,22000000000,Crown,Siren,Rapi,Mihara,Priv
+Quinn,Plate,22000000000,Crown,Siren,SWha,Priv,Elegg
+Quinn,Plate,21000000000,Crown,Moran,SWha,Priv,Thelm
+Quinn,Porter,17000000000,Crown,Moran,Rapi,Thelm,Mast
+Quinn,Porter,16000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Quinn,Porter,16000000000,Crown,Siren,Rapi,Thelm,Priv
+Rachel,Material H,32000000000,Siren,Nayuta,SBS,Lib,Velvet
+Rachel,Land Eater,25000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Rachel,Land Eater,24000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Rachel,Rebuild Fingers,28000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Rachel,Rebuild Fingers,27000000000,Crown,Siren,Rapi,Mihara,Mast
+Rachel,Rebuild Fingers,26000000000,Crown,Siren,Rapi,Mihara,Priv
+Rachel,Plate,16000000000,Crown,Moran,SWha,Priv,Thelm
+Rachel,Plate,15000000000,Crown,Siren,SWha,Priv,Elegg
+Rachel,Porter,21000000000,Crown,Siren,Rapi,Thelm,Priv
+Rachel,Porter,20000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Rachel,Porter,19000000000,Crown,Moran,Rapi,Thelm,Mast
+Sam,Material H,40000000000,Siren,Nayuta,SBS,Lib,Velvet
+Sam,Land Eater,20000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Sam,Land Eater,19000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Sam,Rebuild Fingers,16000000000,Crown,Siren,Rapi,Mihara,Priv
+Sam,Rebuild Fingers,15000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Sam,Rebuild Fingers,15000000000,Crown,Siren,Rapi,Mihara,Mast
+Sam,Plate,25000000000,Crown,Siren,SWha,Priv,Elegg
+Sam,Plate,24000000000,Crown,Moran,SWha,Priv,Thelm
+Sam,Porter,29000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Sam,Porter,28000000000,Crown,Moran,Rapi,Thelm,Mast
+Sam,Porter,27000000000,Crown,Siren,Rapi,Thelm,Priv
+Tina,Material H,50000000000,Siren,Nayuta,SBS,Lib,Velvet
+Tina,Land Eater,17000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Tina,Land Eater,16000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Tina,Rebuild Fingers,23000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Tina,Rebuild Fingers,22000000000,Crown,Siren,Rapi,Mihara,Mast
+Tina,Rebuild Fingers,21000000000,Crown,Siren,Rapi,Mihara,Priv
+Tina,Plate,21000000000,Crown,Moran,SWha,Priv,Thelm
+Tina,Plate,20000000000,Crown,Siren,SWha,Priv,Elegg
+Tina,Porter,18000000000,Crown,Moran,Rapi,Thelm,Mast
+Tina,Porter,17000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Tina,Porter,16000000000,Crown,Siren,Rapi,Thelm,Priv
+Umar,Material H,36000000000,Siren,Nayuta,SBS,Lib,Velvet
+Umar,Land Eater,26000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Umar,Land Eater,25000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Umar,Rebuild Fingers,19000000000,Crown,Siren,Rapi,Mihara,Mast
+Umar,Rebuild Fingers,18000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Umar,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Priv
+Umar,Plate,28000000000,Crown,Siren,SWha,Priv,Elegg
+Umar,Plate,27000000000,Crown,Moran,SWha,Priv,Thelm
+Umar,Porter,22000000000,Crown,Siren,Rapi,Thelm,Priv
+Umar,Porter,21000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Umar,Porter,20000000000,Crown,Moran,Rapi,Thelm,Mast
+Victoria,Material H,43000000000,Siren,Nayuta,SBS,Lib,Velvet
+Victoria,Land Eater,16000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Victoria,Land Eater,15000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Victoria,Rebuild Fingers,27000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Victoria,Rebuild Fingers,26000000000,Crown,Siren,Rapi,Mihara,Mast
+Victoria,Rebuild Fingers,25000000000,Crown,Siren,Rapi,Mihara,Priv
+Victoria,Plate,20000000000,Crown,Moran,SWha,Priv,Thelm
+Victoria,Plate,19000000000,Crown,Siren,SWha,Priv,Elegg
+Victoria,Porter,24000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Victoria,Porter,23000000000,Crown,Moran,Rapi,Thelm,Mast
+Victoria,Porter,22000000000,Crown,Siren,Rapi,Thelm,Priv
+Will,Material H,38000000000,Siren,Nayuta,SBS,Lib,Velvet
+Will,Land Eater,23000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Will,Land Eater,22000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Will,Rebuild Fingers,21000000000,Crown,Siren,Rapi,Mihara,Priv
+Will,Rebuild Fingers,20000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Will,Rebuild Fingers,19000000000,Crown,Siren,Rapi,Mihara,Mast
+Will,Plate,17000000000,Crown,Siren,SWha,Priv,Elegg
+Will,Plate,16000000000,Crown,Moran,SWha,Priv,Thelm
+Will,Porter,26000000000,Crown,Moran,Rapi,Thelm,Mast
+Will,Porter,25000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Will,Porter,24000000000,Crown,Siren,Rapi,Thelm,Priv
+Xena,Material H,46000000000,Siren,Nayuta,SBS,Lib,Velvet
+Xena,Land Eater,28000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Xena,Land Eater,27000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Xena,Rebuild Fingers,16000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Xena,Rebuild Fingers,15000000000,Crown,Siren,Rapi,Mihara,Mast
+Xena,Rebuild Fingers,15000000000,Crown,Siren,Rapi,Mihara,Priv
+Xena,Plate,24000000000,Crown,Moran,SWha,Priv,Thelm
+Xena,Plate,23000000000,Crown,Siren,SWha,Priv,Elegg
+Xena,Porter,19000000000,Crown,Siren,Rapi,Thelm,Priv
+Xena,Porter,18000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Xena,Porter,17000000000,Crown,Moran,Rapi,Thelm,Mast
+Yuki,Material H,33000000000,Siren,Nayuta,SBS,Lib,Velvet
+Yuki,Land Eater,21000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Yuki,Land Eater,18000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Yuki,Rebuild Fingers,25000000000,Crown,Siren,Rapi,Mihara,Mast
+Yuki,Rebuild Fingers,24000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Yuki,Rebuild Fingers,23000000000,Crown,Siren,Rapi,Mihara,Priv
+Yuki,Plate,22000000000,Crown,Siren,SWha,Priv,Elegg
+Yuki,Plate,21000000000,Crown,Moran,SWha,Priv,Thelm
+Yuki,Porter,28000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Yuki,Porter,27000000000,Crown,Moran,Rapi,Thelm,Mast
+Yuki,Porter,26000000000,Crown,Siren,Rapi,Thelm,Priv
+Zara,Material H,41000000000,Siren,Nayuta,SBS,Lib,Velvet
+Zara,Land Eater,24000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Zara,Land Eater,23000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Zara,Rebuild Fingers,29000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Zara,Rebuild Fingers,28000000000,Crown,Siren,Rapi,Mihara,Mast
+Zara,Rebuild Fingers,27000000000,Crown,Siren,Rapi,Mihara,Priv
+Zara,Plate,18000000000,Crown,Moran,SWha,Priv,Thelm
+Zara,Plate,17000000000,Crown,Siren,SWha,Priv,Elegg
+Zara,Porter,16000000000,Crown,Moran,Rapi,Thelm,Mast
+Zara,Porter,15000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Zara,Porter,15000000000,Crown,Siren,Rapi,Thelm,Priv
+Aaron,Material H,35000000000,Siren,Nayuta,SBS,Lib,Velvet
+Aaron,Land Eater,27000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Aaron,Land Eater,26000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Aaron,Rebuild Fingers,22000000000,Crown,Siren,Rapi,Mihara,Priv
+Aaron,Rebuild Fingers,21000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Aaron,Rebuild Fingers,20000000000,Crown,Siren,Rapi,Mihara,Mast
+Aaron,Plate,19000000000,Crown,Siren,SWha,Priv,Elegg
+Aaron,Plate,18000000000,Crown,Moran,SWha,Priv,Thelm
+Aaron,Porter,25000000000,Crown,Siren,Rapi,Thelm,Priv
+Aaron,Porter,24000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Aaron,Porter,23000000000,Crown,Moran,Rapi,Thelm,Mast
+Bella,Material H,48000000000,Siren,Nayuta,SBS,Lib,Velvet
+Bella,Land Eater,16000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Bella,Land Eater,15000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Bella,Rebuild Fingers,18000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Bella,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Mast
+Bella,Rebuild Fingers,16000000000,Crown,Siren,Rapi,Mihara,Priv
+Bella,Plate,26000000000,Crown,Moran,SWha,Priv,Thelm
+Bella,Plate,25000000000,Crown,Siren,SWha,Priv,Elegg
+Bella,Porter,21000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Bella,Porter,20000000000,Crown,Moran,Rapi,Thelm,Mast
+Bella,Porter,19000000000,Crown,Siren,Rapi,Thelm,Priv
+Carlos,Material H,39000000000,Siren,Nayuta,SBS,Lib,Velvet
+Carlos,Land Eater,21000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Carlos,Land Eater,20000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Carlos,Rebuild Fingers,26000000000,Crown,Siren,Rapi,Mihara,Mast
+Carlos,Rebuild Fingers,25000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Carlos,Rebuild Fingers,24000000000,Crown,Siren,Rapi,Mihara,Priv
+Carlos,Plate,17000000000,Crown,Siren,SWha,Priv,Elegg
+Carlos,Plate,16000000000,Crown,Moran,SWha,Priv,Thelm
+Carlos,Porter,23000000000,Crown,Moran,Rapi,Thelm,Mast
+Carlos,Porter,22000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Carlos,Porter,21000000000,Crown,Siren,Rapi,Thelm,Priv
+Diana,Material H,44000000000,Siren,Nayuta,SBS,Lib,Velvet
+Diana,Land Eater,25000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Diana,Land Eater,24000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Diana,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Priv
+Diana,Rebuild Fingers,16000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Diana,Rebuild Fingers,16000000000,Crown,Siren,Rapi,Mihara,Mast
+Diana,Plate,29000000000,Crown,Moran,SWha,Priv,Thelm
+Diana,Plate,28000000000,Crown,Siren,SWha,Priv,Elegg
+Diana,Porter,20000000000,Crown,Siren,Rapi,Thelm,Priv
+Diana,Porter,19000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Diana,Porter,18000000000,Crown,Moran,Rapi,Thelm,Mast
+Ethan,Material H,31000000000,Siren,Nayuta,SBS,Lib,Velvet
+Ethan,Land Eater,18000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Ethan,Land Eater,17000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Ethan,Rebuild Fingers,24000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Ethan,Rebuild Fingers,23000000000,Crown,Siren,Rapi,Mihara,Mast
+Ethan,Rebuild Fingers,22000000000,Crown,Siren,Rapi,Mihara,Priv
+Ethan,Plate,23000000000,Crown,Siren,SWha,Priv,Elegg
+Ethan,Plate,22000000000,Crown,Moran,SWha,Priv,Thelm
+Ethan,Porter,27000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Ethan,Porter,26000000000,Crown,Moran,Rapi,Thelm,Mast
+Ethan,Porter,25000000000,Crown,Siren,Rapi,Thelm,Priv
+Fiona,Material H,37000000000,Siren,Nayuta,SBS,Lib,Velvet
+Fiona,Land Eater,29000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Fiona,Land Eater,28000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Fiona,Rebuild Fingers,20000000000,Crown,Siren,Rapi,Mihara,Mast
+Fiona,Rebuild Fingers,19000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Fiona,Rebuild Fingers,18000000000,Crown,Siren,Rapi,Mihara,Priv
+Fiona,Plate,16000000000,Crown,Moran,SWha,Priv,Thelm
+Fiona,Plate,15000000000,Crown,Siren,SWha,Priv,Elegg
+Fiona,Porter,22000000000,Crown,Moran,Rapi,Thelm,Mast
+Fiona,Porter,21000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Fiona,Porter,20000000000,Crown,Siren,Rapi,Thelm,Priv

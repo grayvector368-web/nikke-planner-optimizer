@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(test -d \"C:/Users/David Araujo/Documents/Programas/nikke-planner\")",
+      "Bash(python tools/nikke_optimizer.py --test)",
+      "Bash(python tools/nikke_optimizer.py --bosses data/bosses_template.csv --teams data/teams_template.csv --solver greedy)",
+      "Bash(python -m unittest discover tests/ -v)",
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:doc-0k-9c-sheets.googleusercontent.com)",
+      "Bash(python -c \":*)",
+      "Bash(python tools/nikke_optimizer.py --bosses data/bosses_template.csv --teams data/teams_template.csv --solver ilp)",
+      "Bash(python tools/nikke_optimizer.py --bosses data/bosses_template.csv --teams data/teams_template.csv)",
+      "Bash(python tools/nikke_optimizer.py --help)",
+      "Bash(python tools/nikke_optimizer.py --bosses data/bosses_template.csv --teams data/teams_template.csv --weights 5000 100 10)",
+      "Bash(python tools/nikke_html_report.py --bosses data/bosses_template.csv --teams data/teams_template_full.csv --output report.html)",
+      "Bash(python tools/convert_teams.py)",
+      "Bash(python tools/convert_teams.py --txt teams.txt)",
+      "Bash(python tools/nikke_html_report.py --bosses data/bosses_template.csv --teams data/teams.csv --output report.html)",
+      "Bash(python tools/sum_damage.py)",
+      "Bash(python tools/nikke_optimizer.py --bosses data/bosses.csv --teams data/teams.csv --solver ilp)",
+      "Bash(python tools/nikke_optimizer.py --bosses data/bosses.csv --teams data/teams.csv --solver ilp --time-limit 300)",
+      "Bash(python:*)"
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+POCHI	766	Iron	2	30,500,109,232	B.Ade	RRH	Siren	Raven	S.Helm		3,008,564
+POCHI	766	Water	3	29,471,437,543	Tove	Grave	S.Dorothy	Drake	X.Soline		3,199,635
+POCHI	766	Water	3	45,241,012,308	Crown	Liter	Snow.HA	Helm	M.Mast		3,248,283
+DAVID	682	Electric	1	24,743,640,998	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		2,421,054
+DAVID	682	Fire	1	36,668,968,562	RRH	X.Brid	Helm	X.Diesel	Mih:bc		2,781,741
+DAVID	682	Water	2	43,242,732,069	Crown	Snow.HA	Siren	S.Dorothy	M.Mast		2,593,541
+DOROJON	682	Wind	1	34,996,021,427	SBS	Nayuta	Siren	Liberalio	M.Mast		2,552,560
+DOROJON	682	Water	1	33,540,248,251	Grave	Liter	Snow.HA	S.Dorothy	S.Elegg		2,416,580
+DOROJON	682	Fire	3	28,011,534,418	RRH	X.Brid	Helm	X.Diesel	Mih:bc		2,567,663
+KENSH	701	Fire	3	29,221,373,030	Crown	RRH	Liter	Mih:bc	Helm		2,655,988
+KENSH	701	Wind	3	35,573,014,884	Nayuta	SBS	Siren	Liberalio	Velvet		2,476,539
+KENSH	701	Electric	3	24,894,779,142	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		2,509,334
+GRAD	661	Wind	2	32,465,084,044	Siren	Nayuta	SBS	Liberalio	Velvet		2,252,406
+GRAD	661	Fire	3	24,656,582,640	RRH	X.Brid	Helm	X.Diesel	Mih:bc		2,246,471
+GRAD	661	Water	3	26,285,947,489	Liter	Crown	Snow.HA	S.Dorothy	S.Elegg		2,130,054
+OCTO	666	Iron	2	18,962,436,656	Miranda	B.Ade	RRH	Raven	S.Helm		2,027,834
+OCTO	666	Water	2	34,008,662,668	Crown	Liter	Snow.HA	Helm	M.Mast		2,345,779
+OCTO	666	Wind	3	30,179,870,564	Nayuta	SBS	Siren	Liberalio	Velvet		2,166,224
+KIRTSU	661	Electric	1	18,687,894,838	Cinderella	Rouge	S.Anis	B.Ade	X.Maiden		2,271,996
+KIRTSU	661	Water	3	30,977,631,890	RRH	Snow.HA	S.Dorothy	Crown	S.Elegg		2,369,139
+KIRTSU	661	Wind	3	31,474,046,428	Nayuta	Siren	Velvet	SBS	Liberalio		2,279,908
+MAKOTO	667	Wind	1	33,710,956,879	Nayuta	SBS	Siren	Liberalio	Velvet		2,267,223
+MAKOTO	667	Iron	1	19,801,507,363	Miranda	Crown	RRH	Raven	S.Helm		2,181,004
+MAKOTO	667	Water	1	27,246,227,425	Liter	Grave	Snow.HA	S.Dorothy	S.Elegg		2,204,276
+KAKAROTO	681	Wind	2	32,299,439,573	Siren	Nayuta	SBS	Liberalio	M.Mast		2,435,918
+KAKAROTO	681	Electric	2	23,040,019,457	S.Anis	Rouge	Cinderella	Mari	X.Maiden		2,378,152
+KAKAROTO	681	Fire	3	24,886,620,100	Liter	Crown	RRH	Mih:bc	Helm		2,513,478
+MAITO	641	Fire	2	26,078,969,648	X.Brid	RRH	Helm	X.Diesel	Mih:bc		2,203,298
+MAITO	641	Electric	3	20,443,252,529	Cinderella	Rouge	S.Anis	X.Maiden	Crown		2,068,122
+MAITO	641	Wind	3	32,576,266,933	Nayuta	Siren	Velvet	Liberalio	SBS		2,122,005
+WYZGUY	664	Iron	1	18,652,840,624	Miranda	B.Ade	RRH	Raven	S.Helm		2,069,853
+WYZGUY	664	Water	2	27,736,989,845	Liter	Snow.HA	Helm	Crown	S.Elegg		2,232,518
+WYZGUY	664	Wind	3	29,577,383,073	Nayuta	SBS	Siren	Liberalio	M.Mast		2,285,309
+RE	661	Electric	2	22,683,108,350	Cinderella	Rouge	S.Anis	B.Ade	X.Maiden		2,149,012
+RE	661	Wind	2	32,491,192,353	Nayuta	Liberalio	Velvet	SBS	Siren		2,135,277
+RE	661	Iron	2	19,834,447,165	Crown	Liter	RRH	Raven	Helm		2,187,204
+WILLIAM	632	Electric	1	19,108,650,400	Crown	S.Anis	Cinderella	Rouge	X.Maiden		1,923,495
+WILLIAM	632	Fire	2	23,354,312,096	X.Brid	RRH	Helm	X.Diesel	Mih:bc		1,925,382
+WILLIAM	632	Wind	2	30,531,053,724	Nayuta	Siren	SBS	Liberalio	Velvet		2,032,901
+AKIRA	655	Iron	1	18,160,255,366	RRH	Crown	Raven	EVE	Helm		2,173,359
+AKIRA	655	Water	2	26,502,848,937	Liter	Grave	Snow.HA	S.Dorothy	S.Elegg		1,916,917
+AKIRA	655	Wind	3	28,006,832,837	Nayuta	SBS	Siren	Liberalio	Velvet		2,072,432
+CHRIS	668	Water	1	21,648,320,968	Liter	Snow.HA	Crown	S.Dorothy	S.Elegg		2,115,118
+CHRIS	668	Fire	1	19,162,202,411	RRH	X.Brid	Helm	X.Diesel	Mih:bc		2,310,763
+CHRIS	668	Wind	1	31,149,300,894	SBS	Nayuta	Siren	Liberalio	Velvet	X	2,179,656
+BAMI	661	Fire	2	19,639,689,464	RRH	Grave	X.Diesel	Rei	Mih:bc		2,103,897
+BAMI	661	Water	2	22,380,477,641	Crown	Liter	Snow.HA	Helm	S.Elegg		2,168,560
+BAMI	661	Wind	3	29,705,527,975	Nayuta	SBS	Siren	Liberalio	Velvet		2,076,146
+MENDO	672	Iron	2	22,741,725,915	Crown	RRH	Siren	Raven	M.Mast		2,147,112
+MENDO	672	Electric	2	18,197,170,299	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis	X	2,179,076
+MENDO	672	Water	3	28,728,208,951	Grave	Liter	Snow.HA	S.Dorothy	S.Elegg		2,037,471
+DYLAN	683	Iron	2	18,323,811,906	Liter	B.Ade	Red Hood	RRH	S.Helm		2,400,153
+DYLAN	683	Water	2	35,940,806,371	Crown	Siren	Snow.HA	S.Dorothy	S.Elegg		2,591,782
+DYLAN	683	Water	2	13,873,073,184	Helm	DKW	X.Ludmilla	Grave	M.Mast	X	2,592,556
+RICE	650	Water	1	24,715,291,230	Grave	Liter	Snow.HA	S.Dorothy	S.Elegg		1,985,468
+RICE	650	Electric	1	20,583,453,045	Cinderella	Rouge	X.Maiden	Nayuta	S.Anis		2,092,611
+RICE	650	Iron	2	22,154,203,686	Crown	Siren	RRH	Raven	M.Mast		2,116,552
+SHIDOFAN	647	Iron	2	17,281,163,140	Miranda	B.Ade	RRH	Raven	S.Helm		1,887,344
+SHIDOFAN	647	Wind	3	21,365,536,192	Nayuta	Siren	SBS	Liberalio	Velvet		1,921,988
+SHIDOFAN	647	Water	3	24,961,235,487	Liter	Crown	Snow.HA	S.Dorothy	Helm		2,114,644
+TORA	641	Iron	1	21,357,559,426	RRH	Raven	Helm	Crown	Siren		2,118,926
+TORA	641	Electric	2	17,522,008,070	Cinderella	Rouge	S.Anis	B.Ade	X.Maiden		1,865,346
+TORA	641	Water	2	22,577,129,685	Liter	Grave	Snow.HA	S.Dorothy	X.Ludmilla		1,840,038
+LIUC	625	Fire	1	20,648,909,806	RRH	X.Brid	Helm	X.Diesel	Mih:bc	X	1,899,771
+LIUC	625	Iron	2	17,089,506,935	Crown	Raven	Siren	EVE	M.Mast	X	1,762,605
+LIUC	625	Water	3	22,569,332,481	Liter	Grave	Snow.HA	S.Dorothy	S.Elegg		1,754,642
+PYOP	637	Iron	1	13,439,926,061	Miranda	B.Ade	RRH	Raven	S.Helm		1,660,427
+PYOP	637	Water	1	21,428,901,533	Liter	Crown	Snow.HA	Helm	M.Mast		1,893,081
+PYOP	637	Wind	3	24,872,902,537	Nayuta	SBS	Siren	Liberalio	Velvet		1,824,316
+69ICE	667	Electric	3	19,580,574,770	Cinderella	Rouge	X.Maiden	Nayuta	S.Anis		2,226,086
+69ICE	667	Water	3	24,772,220,521	Crown	Liter	Snow.HA	S.Dorothy	M.Mast		2,102,376
+69ICE	667	Fire	3	14,986,348,575	RRH	X.Brid	Helm	Mih:bc	X.Diesel		2,323,107
+DARLING	654	Iron	2	21,582,298,631	Crown	RRH	Siren	Raven	M.Mast		2,107,852
+DARLING	654	Fire	2	20,518,707,560	Liter	X.Brid	Helm	X.Diesel	Mih:bc		2,119,129
+DARLING	654	Electric	2	17,063,079,737	Cinderella	Rouge	X.Maiden	Mari	S.Anis		2,016,121
+HAVELLR	581	Fire	1	23,376,198,421	X.Brid	RRH	Siren	X.Diesel	Mih:bc		1,767,071
+HAVELLR	581	Iron	1	13,628,988,447	B.Ade	Miranda	Raven	EVE	S.Helm		1,385,901
+HAVELLR	581	Water	3	20,671,433,009	Crown	Liter	Snow.HA	S.Dorothy	M.Mast		1,630,189
+BOBARGE	581	Fire	2	21,370,049,088	RRH	X.Brid	Siren	Rei	Mih:bc		1,685,706
+BOBARGE	581	Electric	2	17,563,424,598	Cinderella	Rouge	S.Anis	B.Ade	X.Maiden		1,688,175
+BOBARGE	581	Water	3	18,327,900,851	Crown	S.Dorothy	Liter	Helm	X.Ludmilla		1,751,089
+DRUIN	624	Iron	2	19,307,636,556	Crown	RRH	Siren	Raven	M.Mast		1,805,195
+DRUIN	624	Fire	2	21,719,054,726	X.Brid	Liter	Helm	X.Diesel	Mih:bc	X	2,007,515
+DRUIN	624	Electric	2	15,876,719,566	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		1,721,004
+TIOROMAN	605	Iron	1	16,036,900,122	Liter	Crown	RRH	Raven	Helm		1,815,421
+TIOROMAN	605	Wind	2	21,997,649,106	Siren	Nayuta	SBS	Liberalio	M.Mast	X	1,786,807
+TIOROMAN	605	Water	3	18,735,036,160	Miranda	Grave	Snow.HA	S.Dorothy	X.Soline		1,571,134
+JRAINZ	621	Iron	1	15,244,442,022	B.Ade	Miranda	RRH	Raven	S.Helm	X	1,659,496
+JRAINZ	621	Wind	3	20,490,118,536	Nayuta	Siren	SBS	Liberalio	M.Mast		1,774,338
+JRAINZ	621	Water	3	20,324,343,763	Crown	Liter	Snow.HA	S.Dorothy	Helm		1,833,586
+BX	640	Water	1	22,262,824,193	S.Dorothy	Grave	Siren	Snow.HA	S.Elegg	X	1,947,012
+BX	640	Electric	1	16,732,639,919	S.Anis	B.Ade	Cinderella	Rouge	X.Maiden	X	1,874,315
+BX	640	Iron	1	14,519,394,169	Liter	Crown	RRH	Red Hood	Helm		2,036,793
+RYOTAME	632	Iron	2	18,485,380,578	Crown	RRH	Siren	Raven	M.Mast		1,843,097
+RYOTAME	632	Electric	2	17,838,888,723	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		1,838,483
+RYOTAME	632	Fire	2	17,103,636,218	Liter	X.Brid	Helm	X.Diesel	Mih:bc		1,875,191

@@ -1,0 +1,13 @@
+# Nikke Union Raid Planner — Python dependencies
+#
+# Install all dependencies with:
+#   pip install -r requirements.txt
+#
+# Python 3.9+ required.
+
+# Web UI
+streamlit>=1.35.0
+
+# ILP solver (optional but recommended — enables globally optimal assignments)
+# Without this the app falls back to the greedy solver automatically.
+pulp>=2.7.0

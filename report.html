@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikke Union Raid &mdash; Assignment Report</title>
+<style>
+
+:root {
+  --bg:        #0d0f14;
+  --surface:   #161b26;
+  --surface2:  #1e2535;
+  --border:    #2a3348;
+  --accent:    #4f8ef7;
+  --accent2:   #7b5cf0;
+  --cleared:   #22c55e;
+  --partial:   #f59e0b;
+  --empty:     #ef4444;
+  --text:      #e2e8f0;
+  --text-dim:  #8898aa;
+  --font:      'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+/* ---- Layout ---- */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+/* ---- Header ---- */
+.header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+}
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.header-subtitle {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* ---- Meta strip ---- */
+.meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.meta-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.meta-pill .label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.meta-pill .value {
+  font-weight: 600;
+  font-size: 15px;
+}
+.value-score { color: var(--accent); }
+.value-ok    { color: var(--cleared); }
+.value-warn  { color: var(--partial); }
+
+/* ---- Section ---- */
+.section {
+  margin-bottom: 40px;
+}
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+/* ---- Boss grid ---- */
+.boss-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+.boss-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.boss-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.badge-cleared { background: rgba(34,197,94,.18); color: var(--cleared); }
+.badge-partial { background: rgba(245,158,11,.15); color: var(--partial); }
+.badge-empty   { background: rgba(239,68,68,.15);  color: var(--empty);   }
+
+/* ---- Level bars ---- */
+.level-row {
+  margin-bottom: 12px;
+}
+.level-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.level-label .lvl-name { font-weight: 600; color: var(--text-dim); }
+.level-label .lvl-stat { color: var(--text); font-variant-numeric: tabular-nums; }
+
+.bar-track {
+  height: 8px;
+  background: var(--surface2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.bar-cleared { background: var(--cleared); }
+.bar-high    { background: #84cc16; }
+.bar-mid     { background: var(--partial); }
+.bar-low     { background: var(--empty); }
+
+.overflow-line {
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--partial);
+  letter-spacing: 0.02em;
+}
+
+/* ---- Assignment section ---- */
+.boss-section {
+  margin-bottom: 28px;
+}
+.boss-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.level-block {
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.level-block-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.level-block-header .lvl-tag {
+  font-weight: 700;
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.level-block-header .need-hp {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.level-block-header .status-tag {
+  margin-left: auto;
+}
+
+.assign-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.assign-table th {
+  text-align: left;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.assign-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.assign-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.assign-table tbody tr:hover td {
+  background: var(--surface2);
+}
+.member-name { font-weight: 600; }
+.damage-val  { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 600; }
+.units-list  { color: var(--text-dim); font-size: 12px; }
+.unit-tag {
+  display: inline-block;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin: 1px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.no-teams-row td {
+  text-align: center;
+  color: var(--text-dim);
+  font-style: italic;
+  padding: 14px;
+}
+
+/* ---- Level summary footer ---- */
+.level-footer {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+  font-size: 12px;
+}
+.level-footer-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 18px;
+  border-right: 1px solid var(--border);
+}
+.level-footer-stat:last-child {
+  border-right: none;
+}
+.level-footer-stat .stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+}
+.level-footer-stat .stat-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.stat-assigned { color: var(--text); }
+.stat-hp       { color: var(--text-dim); }
+.stat-wasted   { color: var(--partial); }
+.stat-clean    { color: var(--cleared); }
+
+/* ---- Member table ---- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table th {
+  text-align: left;
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.data-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover td { background: var(--surface2); }
+
+.hit-bar {
+  display: flex;
+  gap: 4px;
+}
+.hit-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.hit-dot.used   { background: var(--accent); }
+.hit-dot.unused { background: var(--border); }
+
+.boss-tag {
+  display: inline-block;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-size: 11px;
+  margin: 1px;
+  white-space: nowrap;
+}
+.total-dmg { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 600; }
+
+/* ---- Warnings ---- */
+.warning-box {
+  background: rgba(239,68,68,.08);
+  border: 1px solid rgba(239,68,68,.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--empty);
+}
+.info-box {
+  background: rgba(245,158,11,.08);
+  border: 1px solid rgba(245,158,11,.25);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--partial);
+}
+.empty-state {
+  color: var(--text-dim);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ---- Footer ---- */
+.footer {
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="header-title">Nikke Union Raid Hard Mode &mdash; Assignment Report</div>
+    <div class="header-subtitle">Optimal hit plan for guild progression</div>
+  </div>
+
+  
+<div class="meta-strip">
+  <div class="meta-pill">
+    <span class="label">Generated</span>
+    <span class="value">2026-03-03 21:12</span>
+  </div>
+  <div class="meta-pill">
+    <span class="label">Solver</span>
+    <span class="value">ILP (PuLP/CBC)</span>
+  </div>
+  <div class="meta-pill">
+    <span class="label">Effective Damage</span>
+    <span class="value value-score">2522.13B</span>
+  </div>
+  <div class="meta-pill">
+    <span class="label">Runs Assigned</span>
+    <span class="value">96 / 96</span>
+  </div>
+  <div class="meta-pill">
+    <span class="label">Members</span>
+    <span class="value">32</span>
+  </div>
+  <div class="meta-pill">
+    <span class="label">Raid Status</span>
+    <span class="value value-ok">L2 Cleared / L3 in progress</span>
+  </div>
+</div>
+
+  <div class="section">
+    <div class="section-title">Boss Progress Overview</div>
+    <div class="boss-grid">
+      <div class="boss-card">
+        <div class="boss-card-name">
+          Porter
+          <span class="badge badge-cleared">Cleared L1+</span>
+        </div>
+        
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 1</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 143.7M</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 2</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 4.22B</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 3</span>
+            <span class="lvl-stat">107.00B / 292.45B (37%)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-low" style="width:36.59%"></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="boss-card">
+        <div class="boss-card-name">
+          Plate
+          <span class="badge badge-cleared">Cleared L1+</span>
+        </div>
+        
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 1</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 143.7M</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 2</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 1.22B</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 3</span>
+            <span class="lvl-stat">240.00B / 292.45B (82%)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-high" style="width:82.07%"></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="boss-card">
+        <div class="boss-card-name">
+          Land Eater
+          <span class="badge badge-cleared">Cleared L1+</span>
+        </div>
+        
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 1</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 1.16B</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 2</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 737.3M</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 3</span>
+            <span class="lvl-stat">249.00B / 292.45B (85%)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-high" style="width:85.14%"></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="boss-card">
+        <div class="boss-card-name">
+          Rebuild Fingers
+          <span class="badge badge-cleared">Cleared L1+</span>
+        </div>
+        
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 1</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 3.14B</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 2</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 2.22B</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 3</span>
+            <span class="lvl-stat">81.00B / 292.45B (28%)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-low" style="width:27.70%"></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="boss-card">
+        <div class="boss-card-name">
+          Material H
+          <span class="badge badge-cleared">Cleared L1+</span>
+        </div>
+        
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 1</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 9.16B</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 2</span>
+            <span class="lvl-stat">CLEARED</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-cleared" style="width:100.00%"></div>
+          </div>
+          <div class="overflow-line">Wasted &nbsp;&mdash;&nbsp; 16.74B</div>
+        </div>
+        <div class="level-row">
+          <div class="level-label">
+            <span class="lvl-name">Level 3</span>
+            <span class="lvl-stat">342.00B / 349.23B (98%)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-high" style="width:97.93%"></div>
+          </div>
+          
+        </div>
+      </div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Assignments by Boss &amp; Level</div>
+    
+      <div class="boss-section">
+        <div class="boss-section-title">Porter</div>
+        
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L1</span>
+              <span class="need-hp">HP: 99.86B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Sam</td>
+                <td class="damage-val">29,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Maya</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Victoria</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Diana</td>
+                <td class="damage-val">19,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">100.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">99.86B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">143.7M</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L2</span>
+              <span class="need-hp">HP: 149.78B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Yuki</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Emma</td>
+                <td class="damage-val">27,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">Rapi</span><span class="unit-tag">Thelm</span><span class="unit-tag">Mast</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Ethan</td>
+                <td class="damage-val">27,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Will</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">Rapi</span><span class="unit-tag">Thelm</span><span class="unit-tag">Mast</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Aaron</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Alice</td>
+                <td class="damage-val">22,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">154.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">149.78B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">4.22B</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L3</span>
+              <span class="need-hp">HP: 292.45B</span>
+              <span class="status-tag"><span class="badge badge-partial">37%</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Peter</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Umar</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Bella</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Fiona</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Bob</td>
+                <td class="damage-val">18,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Grave</span><span class="unit-tag">Liter</span><span class="unit-tag">Rapi</span><span class="unit-tag">Raven</span><span class="unit-tag">Summer Helm</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">107.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">292.45B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-clean">None</span></div>
+          </div>
+          </div>
+      </div>
+
+      <div class="boss-section">
+        <div class="boss-section-title">Plate</div>
+        
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L1</span>
+              <span class="need-hp">HP: 99.86B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Xena</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Bob</td>
+                <td class="damage-val">22,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Aaron</td>
+                <td class="damage-val">19,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Peter</td>
+                <td class="damage-val">18,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Carlos</td>
+                <td class="damage-val">17,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">100.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">99.86B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">143.7M</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L2</span>
+              <span class="need-hp">HP: 149.78B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Umar</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Diana</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Olivia</td>
+                <td class="damage-val">27,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Sam</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Nathan</td>
+                <td class="damage-val">22,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Quinn</td>
+                <td class="damage-val">22,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">151.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">149.78B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">1.22B</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L3</span>
+              <span class="need-hp">HP: 292.45B</span>
+              <span class="status-tag"><span class="badge badge-partial">82%</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Grace</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Kate</td>
+                <td class="damage-val">27,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Alice</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Bella</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Frank</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Isabel</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Ethan</td>
+                <td class="damage-val">23,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Yuki</td>
+                <td class="damage-val">22,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Carol</td>
+                <td class="damage-val">20,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Siren</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Elegg</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Victoria</td>
+                <td class="damage-val">20,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Crown</span><span class="unit-tag">Moran</span><span class="unit-tag">SWha</span><span class="unit-tag">Priv</span><span class="unit-tag">Thelm</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">240.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">292.45B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-clean">None</span></div>
+          </div>
+          </div>
+      </div>
+
+      <div class="boss-section">
+        <div class="boss-section-title">Land Eater</div>
+        
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L1</span>
+              <span class="need-hp">HP: 150.84B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Frank</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Maya</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Rachel</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Yuki</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Emma</td>
+                <td class="damage-val">20,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Ethan</td>
+                <td class="damage-val">18,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Jack</td>
+                <td class="damage-val">17,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">Crown</span><span class="unit-tag">X Maiden</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">152.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">150.84B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">1.16B</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L2</span>
+              <span class="need-hp">HP: 226.26B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Fiona</td>
+                <td class="damage-val">29,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">Crown</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Aaron</td>
+                <td class="damage-val">27,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Umar</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Kate</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Olivia</td>
+                <td class="damage-val">22,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Leo</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">Crown</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Carlos</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">David</td>
+                <td class="damage-val">20,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">Crown</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Henry</td>
+                <td class="damage-val">19,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">Crown</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Quinn</td>
+                <td class="damage-val">18,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">227.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">226.26B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">737.3M</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L3</span>
+              <span class="need-hp">HP: 292.45B</span>
+              <span class="status-tag"><span class="badge badge-partial">85%</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Isabel</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Peter</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Xena</td>
+                <td class="damage-val">27,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Bob</td>
+                <td class="damage-val">25,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Zara</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">Crown</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Diana</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Grace</td>
+                <td class="damage-val">23,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Will</td>
+                <td class="damage-val">23,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Tina</td>
+                <td class="damage-val">17,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">Crown</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Carol</td>
+                <td class="damage-val">15,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Nathan</td>
+                <td class="damage-val">15,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Cinderella</span><span class="unit-tag">Rouge</span><span class="unit-tag">Sanis</span><span class="unit-tag">B.Ade</span><span class="unit-tag">X Maiden</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">249.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">292.45B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-clean">None</span></div>
+          </div>
+          </div>
+      </div>
+
+      <div class="boss-section">
+        <div class="boss-section-title">Rebuild Fingers</div>
+        
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L1</span>
+              <span class="need-hp">HP: 99.86B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Zara</td>
+                <td class="damage-val">29,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Rachel</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Quinn</td>
+                <td class="damage-val">23,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Tina</td>
+                <td class="damage-val">23,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">103.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">99.86B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">3.14B</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L2</span>
+              <span class="need-hp">HP: 149.78B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Leo</td>
+                <td class="damage-val">26,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Carlos</td>
+                <td class="damage-val">25,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Nathan</td>
+                <td class="damage-val">24,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">David</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Isabel</td>
+                <td class="damage-val">21,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Frank</td>
+                <td class="damage-val">19,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Olivia</td>
+                <td class="damage-val">16,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">152.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">149.78B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">2.22B</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L3</span>
+              <span class="need-hp">HP: 292.45B</span>
+              <span class="status-tag"><span class="badge badge-partial">28%</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Carol</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Jack</td>
+                <td class="damage-val">28,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Henry</td>
+                <td class="damage-val">25,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Rapi</span><span class="unit-tag">Brid</span><span class="unit-tag">Thelm</span><span class="unit-tag">Diesel</span><span class="unit-tag">Mihara</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">81.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">292.45B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-clean">None</span></div>
+          </div>
+          </div>
+      </div>
+
+      <div class="boss-section">
+        <div class="boss-section-title">Material H</div>
+        
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L1</span>
+              <span class="need-hp">HP: 150.84B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Kate</td>
+                <td class="damage-val">46,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Maya</td>
+                <td class="damage-val">41,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Fiona</td>
+                <td class="damage-val">37,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Henry</td>
+                <td class="damage-val">36,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">160.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">150.84B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">9.16B</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L2</span>
+              <span class="need-hp">HP: 226.26B</span>
+              <span class="status-tag"><span class="badge badge-cleared">Cleared</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">David</td>
+                <td class="damage-val">47,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Xena</td>
+                <td class="damage-val">46,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Sam</td>
+                <td class="damage-val">40,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Jack</td>
+                <td class="damage-val">39,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Will</td>
+                <td class="damage-val">38,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Leo</td>
+                <td class="damage-val">33,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">243.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">226.26B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-wasted">16.74B</span></div>
+          </div>
+          </div>
+          <div class="level-block">
+            <div class="level-block-header">
+              <span class="lvl-tag">L3</span>
+              <span class="need-hp">HP: 349.23B</span>
+              <span class="status-tag"><span class="badge badge-partial">98%</span></span>
+            </div>
+            <table class="assign-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Damage</th>
+                  <th>Units</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="member-name">Tina</td>
+                <td class="damage-val">50,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Grace</td>
+                <td class="damage-val">49,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Bella</td>
+                <td class="damage-val">48,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Emma</td>
+                <td class="damage-val">44,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Victoria</td>
+                <td class="damage-val">43,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Zara</td>
+                <td class="damage-val">41,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Alice</td>
+                <td class="damage-val">35,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr>
+              <tr>
+                <td class="member-name">Rachel</td>
+                <td class="damage-val">32,000,000,000</td>
+                <td class="units-list"><span class="unit-tag">Siren</span><span class="unit-tag">Nayuta</span><span class="unit-tag">SBS</span><span class="unit-tag">Lib</span><span class="unit-tag">Velvet</span></td>
+              </tr></tbody>
+            </table>
+            
+          <div class="level-footer">
+            <div class="level-footer-stat">
+              <span class="stat-label">Total Assigned</span>
+              <span class="stat-value stat-assigned">342.00B</span>
+            </div>
+            <div class="level-footer-stat">
+              <span class="stat-label">Boss HP</span>
+              <span class="stat-value stat-hp">349.23B</span>
+            </div>
+            <div class="level-footer-stat"><span class="stat-label">Wasted</span><span class="stat-value stat-clean">None</span></div>
+          </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Member Statistics</div>
+    
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Hits Used</th>
+      <th>Targets</th>
+      <th>Total Damage</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td class="member-name">Aaron</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">70.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Alice</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">83.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Bella</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">95.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Bob</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">65.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Carlos</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">63.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Carol</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">63.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">David</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">88.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Diana</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">71.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Emma</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">91.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Ethan</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">68.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Fiona</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">87.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Frank</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">69.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Grace</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span></td>
+        <td class="total-dmg">100.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Henry</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">80.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Isabel</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">73.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Jack</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">84.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Kate</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span></td>
+        <td class="total-dmg">97.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Leo</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">80.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Maya</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">95.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Nathan</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">61.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Olivia</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">65.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Peter</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">72.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Quinn</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">63.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Rachel</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">84.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Sam</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">93.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Tina</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">90.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Umar</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">75.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Victoria</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">87.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Will</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">87.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Xena</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span></td>
+        <td class="total-dmg">97.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Yuki</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Plate&nbsp;x1</span><span class="boss-tag">Porter&nbsp;x1</span></td>
+        <td class="total-dmg">71.00B</td>
+      </tr>
+      <tr>
+        <td class="member-name">Zara</td>
+        <td>
+          <div class="hit-bar"><div class="hit-dot used"></div><div class="hit-dot used"></div><div class="hit-dot used"></div></div>
+          <span style="font-size:11px;color:var(--text-dim);margin-top:3px;display:block">
+            3 / 3
+          </span>
+        </td>
+        <td><span class="boss-tag">Land Eater&nbsp;x1</span><span class="boss-tag">Material H&nbsp;x1</span><span class="boss-tag">Rebuild Fingers&nbsp;x1</span></td>
+        <td class="total-dmg">94.00B</td>
+      </tr></tbody>
+</table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Notices</div>
+    
+      <div class="info-box">
+        <strong>Unused teams (hit limit reached, no unit conflict):</strong>
+        <table class="data-table" style="margin-top:10px">
+          <thead><tr><th>Member</th><th>Boss</th><th>Damage</th></tr></thead>
+          <tbody><tr><td>Alice</td><td>Land Eater</td><td class='damage-val'>17,000,000,000</td></tr><tr><td>Grace</td><td>Porter</td><td class='damage-val'>20,000,000,000</td></tr><tr><td>Kate</td><td>Porter</td><td class='damage-val'>15,000,000,000</td></tr><tr><td>Maya</td><td>Plate</td><td class='damage-val'>18,000,000,000</td></tr><tr><td>Peter</td><td>Material H</td><td class='damage-val'>34,000,000,000</td></tr><tr><td>Sam</td><td>Land Eater</td><td class='damage-val'>20,000,000,000</td></tr><tr><td>Victoria</td><td>Land Eater</td><td class='damage-val'>15,000,000,000</td></tr><tr><td>Xena</td><td>Porter</td><td class='damage-val'>18,000,000,000</td></tr><tr><td>Bella</td><td>Land Eater</td><td class='damage-val'>15,000,000,000</td></tr></tbody>
+        </table>
+      </div>
+  </div>
+
+  <div class="footer">
+    Generated 2026-03-03 21:12 &nbsp;&bull;&nbsp; Nikke Union Raid Planner
+  </div>
+</div>
+
+</body>
+</html>

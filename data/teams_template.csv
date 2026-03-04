@@ -1,0 +1,23 @@
+member,boss_name,damage,unit1,unit2,unit3,unit4,unit5
+David,Material H,30000000000,Siren,Nayuta,SBS,Lib,Velvet
+David,Land Eater,22000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+David,Plate,35000000000,Crown,Siren,SWha,Priv,Elegg
+David,Plate,30000000000,Grave,Tove,Summer Dorothy,Drake,Soline
+David,Rebuild Fingers,30000000000,Crown,Siren,Rapi,Mihara,Priv
+David,Rebuild Fingers,30000000000,Rapi,Brid,Thelm,Diesel,Mihara
+David,Porter,21000000000,Grave,Liter,Rapi,Raven,Summer Helm
+Alice,Material H,35000000000,Siren,Nayuta,SBS,Lib,Velvet
+Alice,Land Eater,18000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Alice,Rebuild Fingers,20000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Alice,Plate,26000000000,Crown,Moran,SWha,Priv,Thelm
+Alice,Porter,23000000000,Crown,Siren,Rapi,Thelm,Priv
+Bob,Material H,42000000000,Siren,Nayuta,SBS,Lib,Velvet
+Bob,Land Eater,25000000000,Cinderella,Rouge,Sanis,B.Ade,X Maiden
+Bob,Rebuild Fingers,17000000000,Crown,Siren,Rapi,Mihara,Mast
+Bob,Plate,22000000000,Crown,Siren,SWha,Priv,Elegg
+Bob,Porter,19000000000,Crown,Moran,Rapi,Thelm,Mast
+Carol,Material H,38000000000,Siren,Nayuta,SBS,Lib,Velvet
+Carol,Land Eater,16000000000,Cinderella,Rouge,Sanis,Crown,X Maiden
+Carol,Rebuild Fingers,28000000000,Rapi,Brid,Thelm,Diesel,Mihara
+Carol,Plate,21000000000,Crown,Moran,SWha,Priv,Thelm
+Carol,Porter,24000000000,Grave,Liter,Rapi,Raven,Summer Helm
