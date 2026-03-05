@@ -1,97 +1,100 @@
 member,boss_name,damage,unit1,unit2,unit3,unit4,unit5
-POCHI,Grave Digger,30500109232,B.Ade,RRH,Siren,Raven,S.Helm
-POCHI,Black Smith,29471437543,Tove,Grave,S.Dorothy,Drake,X.Soline
-POCHI,Black Smith,45241012308,Crown,Liter,Snow.HA,Helm,M.Mast
-DAVID,Rebuild Stout,24743640998,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
-DAVID,Latiance,36668968562,RRH,X.Brid,Helm,X.Diesel,Mih:bc
-DAVID,Black Smith,43242732069,Crown,Snow.HA,Siren,S.Dorothy,M.Mast
-DOROJON,Fingers,34996021427,SBS,Nayuta,Siren,Liberalio,M.Mast
-DOROJON,Black Smith,33540248251,Grave,Liter,Snow.HA,S.Dorothy,S.Elegg
-DOROJON,Latiance,28011534418,RRH,X.Brid,Helm,X.Diesel,Mih:bc
-KENSH,Latiance,29221373030,Crown,RRH,Liter,Mih:bc,Helm
-KENSH,Fingers,35573014884,Nayuta,SBS,Siren,Liberalio,Velvet
-KENSH,Rebuild Stout,24894779142,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
-GRAD,Fingers,32465084044,Siren,Nayuta,SBS,Liberalio,Velvet
-GRAD,Latiance,24656582640,RRH,X.Brid,Helm,X.Diesel,Mih:bc
-GRAD,Black Smith,26285947489,Liter,Crown,Snow.HA,S.Dorothy,S.Elegg
-OCTO,Grave Digger,18962436656,Miranda,B.Ade,RRH,Raven,S.Helm
-OCTO,Black Smith,34008662668,Crown,Liter,Snow.HA,Helm,M.Mast
-OCTO,Fingers,30179870564,Nayuta,SBS,Siren,Liberalio,Velvet
-KIRTSU,Rebuild Stout,18687894838,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
-KIRTSU,Black Smith,30977631890,RRH,Snow.HA,S.Dorothy,Crown,S.Elegg
-KIRTSU,Fingers,31474046428,Nayuta,Siren,Velvet,SBS,Liberalio
-MAKOTO,Fingers,33710956879,Nayuta,SBS,Siren,Liberalio,Velvet
-MAKOTO,Grave Digger,19801507363,Miranda,Crown,RRH,Raven,S.Helm
-MAKOTO,Black Smith,27246227425,Liter,Grave,Snow.HA,S.Dorothy,S.Elegg
-KAKAROTO,Fingers,32299439573,Siren,Nayuta,SBS,Liberalio,M.Mast
-KAKAROTO,Rebuild Stout,23040019457,S.Anis,Rouge,Cinderella,Mari,X.Maiden
-KAKAROTO,Latiance,24886620100,Liter,Crown,RRH,Mih:bc,Helm
-MAITO,Latiance,26078969648,X.Brid,RRH,Helm,X.Diesel,Mih:bc
-MAITO,Rebuild Stout,20443252529,Cinderella,Rouge,S.Anis,X.Maiden,Crown
-MAITO,Fingers,32576266933,Nayuta,Siren,Velvet,Liberalio,SBS
-WYZGUY,Grave Digger,18652840624,Miranda,B.Ade,RRH,Raven,S.Helm
-WYZGUY,Black Smith,27736989845,Liter,Snow.HA,Helm,Crown,S.Elegg
-WYZGUY,Fingers,29577383073,Nayuta,SBS,Siren,Liberalio,M.Mast
-RE,Rebuild Stout,22683108350,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
-RE,Fingers,32491192353,Nayuta,Liberalio,Velvet,SBS,Siren
-RE,Grave Digger,19834447165,Crown,Liter,RRH,Raven,Helm
-WILLIAM,Rebuild Stout,19108650400,Crown,S.Anis,Cinderella,Rouge,X.Maiden
-WILLIAM,Latiance,23354312096,X.Brid,RRH,Helm,X.Diesel,Mih:bc
-WILLIAM,Fingers,30531053724,Nayuta,Siren,SBS,Liberalio,Velvet
-AKIRA,Grave Digger,18160255366,RRH,Crown,Raven,EVE,Helm
-AKIRA,Black Smith,26502848937,Liter,Grave,Snow.HA,S.Dorothy,S.Elegg
-AKIRA,Fingers,28006832837,Nayuta,SBS,Siren,Liberalio,Velvet
-CHRIS,Black Smith,21648320968,Liter,Snow.HA,Crown,S.Dorothy,S.Elegg
-CHRIS,Latiance,19162202411,RRH,X.Brid,Helm,X.Diesel,Mih:bc
-CHRIS,Fingers,31149300894,SBS,Nayuta,Siren,Liberalio,Velvet
-BAMI,Latiance,19639689464,RRH,Grave,X.Diesel,Rei,Mih:bc
-BAMI,Black Smith,22380477641,Crown,Liter,Snow.HA,Helm,S.Elegg
-BAMI,Fingers,29705527975,Nayuta,SBS,Siren,Liberalio,Velvet
-MENDO,Grave Digger,22741725915,Crown,RRH,Siren,Raven,M.Mast
-MENDO,Rebuild Stout,18197170299,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
-MENDO,Black Smith,28728208951,Grave,Liter,Snow.HA,S.Dorothy,S.Elegg
-DYLAN,Grave Digger,18323811906,Liter,B.Ade,Red Hood,RRH,S.Helm
-DYLAN,Black Smith,35940806371,Crown,Siren,Snow.HA,S.Dorothy,S.Elegg
-DYLAN,Black Smith,13873073184,Helm,DKW,X.Ludmilla,Grave,M.Mast
-RICE,Black Smith,24715291230,Grave,Liter,Snow.HA,S.Dorothy,S.Elegg
-RICE,Rebuild Stout,20583453045,Cinderella,Rouge,X.Maiden,Nayuta,S.Anis
-RICE,Grave Digger,22154203686,Crown,Siren,RRH,Raven,M.Mast
-SHIDOFAN,Grave Digger,17281163140,Miranda,B.Ade,RRH,Raven,S.Helm
-SHIDOFAN,Fingers,21365536192,Nayuta,Siren,SBS,Liberalio,Velvet
-SHIDOFAN,Black Smith,24961235487,Liter,Crown,Snow.HA,S.Dorothy,Helm
-TORA,Grave Digger,21357559426,RRH,Raven,Helm,Crown,Siren
-TORA,Rebuild Stout,17522008070,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
-TORA,Black Smith,22577129685,Liter,Grave,Snow.HA,S.Dorothy,X.Ludmilla
-LIUC,Latiance,20648909806,RRH,X.Brid,Helm,X.Diesel,Mih:bc
-LIUC,Grave Digger,17089506935,Crown,Raven,Siren,EVE,M.Mast
-LIUC,Black Smith,22569332481,Liter,Grave,Snow.HA,S.Dorothy,S.Elegg
-PYOP,Grave Digger,13439926061,Miranda,B.Ade,RRH,Raven,S.Helm
-PYOP,Black Smith,21428901533,Liter,Crown,Snow.HA,Helm,M.Mast
-PYOP,Fingers,24872902537,Nayuta,SBS,Siren,Liberalio,Velvet
-69ICE,Rebuild Stout,19580574770,Cinderella,Rouge,X.Maiden,Nayuta,S.Anis
-69ICE,Black Smith,24772220521,Crown,Liter,Snow.HA,S.Dorothy,M.Mast
-69ICE,Latiance,14986348575,RRH,X.Brid,Helm,Mih:bc,X.Diesel
-DARLING,Grave Digger,21582298631,Crown,RRH,Siren,Raven,M.Mast
-DARLING,Latiance,20518707560,Liter,X.Brid,Helm,X.Diesel,Mih:bc
-DARLING,Rebuild Stout,17063079737,Cinderella,Rouge,X.Maiden,Mari,S.Anis
-HAVELLR,Latiance,23376198421,X.Brid,RRH,Siren,X.Diesel,Mih:bc
-HAVELLR,Grave Digger,13628988447,B.Ade,Miranda,Raven,EVE,S.Helm
-HAVELLR,Black Smith,20671433009,Crown,Liter,Snow.HA,S.Dorothy,M.Mast
-BOBARGE,Latiance,21370049088,RRH,X.Brid,Siren,Rei,Mih:bc
-BOBARGE,Rebuild Stout,17563424598,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
-BOBARGE,Black Smith,18327900851,Crown,S.Dorothy,Liter,Helm,X.Ludmilla
-DRUIN,Grave Digger,19307636556,Crown,RRH,Siren,Raven,M.Mast
-DRUIN,Latiance,21719054726,X.Brid,Liter,Helm,X.Diesel,Mih:bc
-DRUIN,Rebuild Stout,15876719566,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
-TIOROMAN,Grave Digger,16036900122,Liter,Crown,RRH,Raven,Helm
-TIOROMAN,Fingers,21997649106,Siren,Nayuta,SBS,Liberalio,M.Mast
-TIOROMAN,Black Smith,18735036160,Miranda,Grave,Snow.HA,S.Dorothy,X.Soline
-JRAINZ,Grave Digger,15244442022,B.Ade,Miranda,RRH,Raven,S.Helm
-JRAINZ,Fingers,20490118536,Nayuta,Siren,SBS,Liberalio,M.Mast
-JRAINZ,Black Smith,20324343763,Crown,Liter,Snow.HA,S.Dorothy,Helm
-BX,Black Smith,22262824193,S.Dorothy,Grave,Siren,Snow.HA,S.Elegg
-BX,Rebuild Stout,16732639919,S.Anis,B.Ade,Cinderella,Rouge,X.Maiden
-BX,Grave Digger,14519394169,Liter,Crown,RRH,Red Hood,Helm
-RYOTAME,Grave Digger,18485380578,Crown,RRH,Siren,Raven,M.Mast
-RYOTAME,Rebuild Stout,17838888723,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
-RYOTAME,Latiance,17103636218,Liter,X.Brid,Helm,X.Diesel,Mih:bc
+POCHI,Porter,30500109232,B.Ade,RRH,Siren,Raven,S.Helm
+POCHI,Plate,29471437543,Tove,Grave,S.Dorothy,Drake,X.Soline
+POCHI,Plate,45241012308,Crown,Liter,Snow.HA,Helm,M.Mast
+DAVID,Land Eater,24743640998,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
+DAVID,Rebuild Fingers,36668968562,RRH,X.Brid,Helm,X.Diesel,Mih:bc
+DAVID,Plate,43242732069,Crown,Snow.HA,Siren,S.Dorothy,M.Mast
+DOROJON,Material H,34996021427,SBS,Nayuta,Siren,Liberalio,M.Mast
+DOROJON,Plate,33540248251,Grave,Liter,Snow.HA,S.Dorothy,S.Elegg
+DOROJON,Rebuild Fingers,28011534418,RRH,X.Brid,Helm,X.Diesel,Mih:bc
+KENSH,Rebuild Fingers,29221373030,Crown,RRH,Liter,Mih:bc,Helm
+KENSH,Material H,35573014884,Nayuta,SBS,Siren,Liberalio,Velvet
+KENSH,Land Eater,24894779142,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
+GRAD,Material H,32465084044,Siren,Nayuta,SBS,Liberalio,Velvet
+GRAD,Rebuild Fingers,24656582640,RRH,X.Brid,Helm,X.Diesel,Mih:bc
+GRAD,Plate,26285947489,Liter,Crown,Snow.HA,S.Dorothy,S.Elegg
+OCTO,Porter,18962436656,Miranda,B.Ade,RRH,Raven,S.Helm
+OCTO,Plate,34008662668,Crown,Liter,Snow.HA,Helm,M.Mast
+OCTO,Material H,30179870564,Nayuta,SBS,Siren,Liberalio,Velvet
+KIRTSU,Land Eater,18687894838,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
+KIRTSU,Plate,30977631890,RRH,Snow.HA,S.Dorothy,Crown,S.Elegg
+KIRTSU,Material H,31474046428,Nayuta,Siren,Velvet,SBS,Liberalio
+MAKOTO,Material H,33710956879,Nayuta,SBS,Siren,Liberalio,Velvet
+MAKOTO,Porter,19801507363,Miranda,Crown,RRH,Raven,S.Helm
+MAKOTO,Plate,27246227425,Liter,Grave,Snow.HA,S.Dorothy,S.Elegg
+KAKAROTO,Material H,32299439573,Siren,Nayuta,SBS,Liberalio,M.Mast
+KAKAROTO,Land Eater,23040019457,S.Anis,Rouge,Cinderella,Mari,X.Maiden
+KAKAROTO,Rebuild Fingers,24886620100,Liter,Crown,RRH,Mih:bc,Helm
+MAITO,Rebuild Fingers,26078969648,X.Brid,RRH,Helm,X.Diesel,Mih:bc
+MAITO,Land Eater,20443252529,Cinderella,Rouge,S.Anis,X.Maiden,Crown
+MAITO,Material H,32576266933,Nayuta,Siren,Velvet,Liberalio,SBS
+WYZGUY,Porter,18652840624,Miranda,B.Ade,RRH,Raven,S.Helm
+WYZGUY,Plate,27736989845,Liter,Snow.HA,Helm,Crown,S.Elegg
+WYZGUY,Material H,29577383073,Nayuta,SBS,Siren,Liberalio,M.Mast
+RE,Land Eater,22683108350,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
+RE,Material H,32491192353,Nayuta,Liberalio,Velvet,SBS,Siren
+RE,Porter,19834447165,Crown,Liter,RRH,Raven,Helm
+WILLIAM,Land Eater,19108650400,Crown,S.Anis,Cinderella,Rouge,X.Maiden
+WILLIAM,Rebuild Fingers,23354312096,X.Brid,RRH,Helm,X.Diesel,Mih:bc
+WILLIAM,Material H,30531053724,Nayuta,Siren,SBS,Liberalio,Velvet
+AKIRA,Porter,18160255366,RRH,Crown,Raven,EVE,Helm
+AKIRA,Plate,26502848937,Liter,Grave,Snow.HA,S.Dorothy,S.Elegg
+AKIRA,Material H,28006832837,Nayuta,SBS,Siren,Liberalio,Velvet
+CHRIS,Plate,21648320968,Liter,Snow.HA,Crown,S.Dorothy,S.Elegg
+CHRIS,Rebuild Fingers,19162202411,RRH,X.Brid,Helm,X.Diesel,Mih:bc
+CHRIS,Material H,31149300894,SBS,Nayuta,Siren,Liberalio,Velvet
+BAMI,Rebuild Fingers,19639689464,RRH,Grave,X.Diesel,Rei,Mih:bc
+BAMI,Plate,22380477641,Crown,Liter,Snow.HA,Helm,S.Elegg
+BAMI,Material H,29705527975,Nayuta,SBS,Siren,Liberalio,Velvet
+MENDO,Porter,22741725915,Crown,RRH,Siren,Raven,M.Mast
+MENDO,Land Eater,18197170299,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
+MENDO,Plate,28728208951,Grave,Liter,Snow.HA,S.Dorothy,S.Elegg
+DYLAN,Porter,18323811906,Liter,B.Ade,Red Hood,RRH,S.Helm
+DYLAN,Plate,35940806371,Crown,Siren,Snow.HA,S.Dorothy,S.Elegg
+DYLAN,Plate,13873073184,Helm,DKW,X.Ludmilla,Grave,M.Mast
+RICE,Plate,24715291230,Grave,Liter,Snow.HA,S.Dorothy,S.Elegg
+RICE,Land Eater,20583453045,Cinderella,Rouge,X.Maiden,Nayuta,S.Anis
+RICE,Porter,22154203686,Crown,Siren,RRH,Raven,M.Mast
+SHIDOFAN,Porter,17281163140,Miranda,B.Ade,RRH,Raven,S.Helm
+SHIDOFAN,Material H,21365536192,Nayuta,Siren,SBS,Liberalio,Velvet
+SHIDOFAN,Plate,24961235487,Liter,Crown,Snow.HA,S.Dorothy,Helm
+TORA,Porter,21357559426,RRH,Raven,Helm,Crown,Siren
+TORA,Land Eater,17522008070,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
+TORA,Plate,22577129685,Liter,Grave,Snow.HA,S.Dorothy,X.Ludmilla
+LIUC,Rebuild Fingers,20648909806,RRH,X.Brid,Helm,X.Diesel,Mih:bc
+LIUC,Porter,17089506935,Crown,Raven,Siren,EVE,M.Mast
+LIUC,Plate,22569332481,Liter,Grave,Snow.HA,S.Dorothy,S.Elegg
+PYOP,Porter,13439926061,Miranda,B.Ade,RRH,Raven,S.Helm
+PYOP,Plate,21428901533,Liter,Crown,Snow.HA,Helm,M.Mast
+PYOP,Material H,24872902537,Nayuta,SBS,Siren,Liberalio,Velvet
+69ICE,Land Eater,19580574770,Cinderella,Rouge,X.Maiden,Nayuta,S.Anis
+69ICE,Plate,24772220521,Crown,Liter,Snow.HA,S.Dorothy,M.Mast
+69ICE,Rebuild Fingers,14986348575,RRH,X.Brid,Helm,Mih:bc,X.Diesel
+DARLING,Porter,21582298631,Crown,RRH,Siren,Raven,M.Mast
+DARLING,Rebuild Fingers,20518707560,Liter,X.Brid,Helm,X.Diesel,Mih:bc
+DARLING,Land Eater,17063079737,Cinderella,Rouge,X.Maiden,Mari,S.Anis
+HAVELLR,Rebuild Fingers,23376198421,X.Brid,RRH,Siren,X.Diesel,Mih:bc
+HAVELLR,Porter,13628988447,B.Ade,Miranda,Raven,EVE,S.Helm
+HAVELLR,Plate,20671433009,Crown,Liter,Snow.HA,S.Dorothy,M.Mast
+BOBARGE,Rebuild Fingers,21370049088,RRH,X.Brid,Siren,Rei,Mih:bc
+BOBARGE,Land Eater,17563424598,Cinderella,Rouge,S.Anis,B.Ade,X.Maiden
+BOBARGE,Plate,18327900851,Crown,S.Dorothy,Liter,Helm,X.Ludmilla
+DRUIN,Porter,19307636556,Crown,RRH,Siren,Raven,M.Mast
+DRUIN,Rebuild Fingers,21719054726,X.Brid,Liter,Helm,X.Diesel,Mih:bc
+DRUIN,Land Eater,15876719566,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
+TIOROMAN,Porter,16036900122,Liter,Crown,RRH,Raven,Helm
+TIOROMAN,Material H,21997649106,Siren,Nayuta,SBS,Liberalio,M.Mast
+TIOROMAN,Plate,18735036160,Miranda,Grave,Snow.HA,S.Dorothy,X.Soline
+JRAINZ,Porter,15244442022,B.Ade,Miranda,RRH,Raven,S.Helm
+JRAINZ,Material H,20490118536,Nayuta,Siren,SBS,Liberalio,M.Mast
+JRAINZ,Plate,20324343763,Crown,Liter,Snow.HA,S.Dorothy,Helm
+BX,Plate,22262824193,S.Dorothy,Grave,Siren,Snow.HA,S.Elegg
+BX,Land Eater,16732639919,S.Anis,B.Ade,Cinderella,Rouge,X.Maiden
+BX,Porter,14519394169,Liter,Crown,RRH,Red Hood,Helm
+RYOTAME,Porter,18485380578,Crown,RRH,Siren,Raven,M.Mast
+RYOTAME,Land Eater,17838888723,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
+RYOTAME,Rebuild Fingers,17103636218,Liter,X.Brid,Helm,X.Diesel,Mih:bc
+DER,Land Eater,17838888723,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
+SAL,Land Eater,17838888723,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis
+LO,Land Eater,17838888723,Cinderella,Rouge,X.Maiden,B.Ade,S.Anis

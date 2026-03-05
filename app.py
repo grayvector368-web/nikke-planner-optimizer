@@ -427,7 +427,8 @@ with tab_bosses:
 
     st.divider()
     st.caption(
-        "Columns: **Name** | **Element Weakness** | **HP Preset** | **HP L1** | **HP L2** | **HP L3**"
+        "Columns: **Name** | **Element Weakness** | **HP Preset** | **HP L1** | **HP L2** | **HP L3**\n\n"
+        "Tick **Cleared** to mark a level as done (sets HP to 0) — the optimizer will skip it."
     )
 
     # Render one row per boss
@@ -472,46 +473,76 @@ with tab_bosses:
             )
 
         if HP_PRESETS[preset] is not None:
-            hp1, hp2, hp3 = HP_PRESETS[preset]
+            base_hp1, base_hp2, base_hp3 = HP_PRESETS[preset]
         else:
-            hp1, hp2, hp3 = row["hp1"], row["hp2"], row["hp3"]
+            base_hp1, base_hp2, base_hp3 = row["hp1"], row["hp2"], row["hp3"]
 
         with c4:
+            cleared_l1 = st.checkbox(
+                "L1 Cleared",
+                value=row.get("cleared_l1", False),
+                key=f"bclr1_{i}",
+            )
             hp1 = st.number_input(
                 "HP L1",
-                value=hp1,
-                min_value=1,
+                value=0 if cleared_l1 else base_hp1,
+                min_value=0,
                 step=1_000_000_000,
                 key=f"bhp1_{i}",
                 label_visibility="collapsed",
-                disabled=(HP_PRESETS[preset] is not None),
+                disabled=(HP_PRESETS[preset] is not None) or cleared_l1,
                 format="%d",
             )
+            if cleared_l1:
+                hp1 = 0
         with c5:
+            cleared_l2 = st.checkbox(
+                "L2 Cleared",
+                value=row.get("cleared_l2", False),
+                key=f"bclr2_{i}",
+            )
             hp2 = st.number_input(
                 "HP L2",
-                value=hp2,
-                min_value=1,
+                value=0 if cleared_l2 else base_hp2,
+                min_value=0,
                 step=1_000_000_000,
                 key=f"bhp2_{i}",
                 label_visibility="collapsed",
-                disabled=(HP_PRESETS[preset] is not None),
+                disabled=(HP_PRESETS[preset] is not None) or cleared_l2,
                 format="%d",
             )
+            if cleared_l2:
+                hp2 = 0
         with c6:
+            cleared_l3 = st.checkbox(
+                "L3 Cleared",
+                value=row.get("cleared_l3", False),
+                key=f"bclr3_{i}",
+            )
             hp3 = st.number_input(
                 "HP L3",
-                value=hp3,
-                min_value=1,
+                value=0 if cleared_l3 else base_hp3,
+                min_value=0,
                 step=1_000_000_000,
                 key=f"bhp3_{i}",
                 label_visibility="collapsed",
-                disabled=(HP_PRESETS[preset] is not None),
+                disabled=(HP_PRESETS[preset] is not None) or cleared_l3,
                 format="%d",
             )
+            if cleared_l3:
+                hp3 = 0
 
         updated_rows.append(
-            {"name": name, "element": element, "hp1": hp1, "hp2": hp2, "hp3": hp3}
+            {
+                "name": name,
+                "element": element,
+                "hp1": hp1,
+                "hp2": hp2,
+                "hp3": hp3,
+                "cleared_l1": cleared_l1,
+                "cleared_l2": cleared_l2,
+                "cleared_l3": cleared_l3,
+            }
         )
 
     st.session_state.boss_rows = updated_rows
