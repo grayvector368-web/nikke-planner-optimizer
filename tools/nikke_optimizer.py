@@ -584,15 +584,29 @@ def solve_ilp(
         - pulp.lpSum(x[i, l] for i in range(n) for l in levels)
     )
 
-    # Prefer system CBC binary (e.g. installed via apt coinor-cbc on Linux/Streamlit Cloud)
-    # over PuLP's bundled binary, which may not be executable in restricted environments.
-    import shutil as _shutil
+    # Try PuLP's bundled CBC first (consistent behaviour across platforms).
+    # Fall back to system CBC only if the bundled binary isn't available
+    # (e.g. Streamlit Cloud where the bundled exe may not be executable).
+    # Pass ratioGap explicitly via options to ensure CBC honours the zero gap
+    # regardless of version.
+    _solver_options = ["ratioGap 0", f"seconds {time_limit}"]
+    try:
+        _solver = pulp.PULP_CBC_CMD(
+            timeLimit=time_limit, msg=0, gapRel=0, options=_solver_options
+        )
+        if not _solver.available():
+            raise RuntimeError("bundled CBC not available")
+    except Exception:
+        import shutil as _shutil
 
-    _cbc_path = _shutil.which("cbc")
-    if _cbc_path:
-        _solver = pulp.COIN_CMD(path=_cbc_path, timeLimit=time_limit, msg=0, gapRel=0)
-    else:
-        _solver = pulp.PULP_CBC_CMD(timeLimit=time_limit, msg=0, gapRel=0)
+        _cbc_path = _shutil.which("cbc")
+        if _cbc_path:
+            _solver = pulp.COIN_CMD(
+                path=_cbc_path, timeLimit=time_limit, msg=0, gapRel=0,
+                options=_solver_options,
+            )
+        else:
+            _solver = pulp.PULP_CBC_CMD(timeLimit=time_limit, msg=0, gapRel=0)
     prob.solve(_solver)
 
     if prob.status not in (1, -2):
