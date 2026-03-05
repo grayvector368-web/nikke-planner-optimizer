@@ -575,8 +575,14 @@ def solve_ilp(
         prob += es[b, 3] <= e[b, 3]
         prob += es[b, 3] <= hp3 * g3
 
-    # Objective: maximize weighted scored effective damage
-    prob += pulp.lpSum(weights[l - 1] * es[b, l] for b in boss_names for l in levels)
+    # Objective: maximize weighted scored effective damage, with a tiny penalty
+    # per assignment to break ties in favour of fewer runs. Without this, CBC
+    # freely piles redundant teams onto already-cleared bosses (same score),
+    # wasting member hits that could be saved for later levels.
+    prob += (
+        pulp.lpSum(weights[l - 1] * es[b, l] for b in boss_names for l in levels)
+        - pulp.lpSum(x[i, l] for i in range(n) for l in levels)
+    )
 
     # Prefer system CBC binary (e.g. installed via apt coinor-cbc on Linux/Streamlit Cloud)
     # over PuLP's bundled binary, which may not be executable in restricted environments.
