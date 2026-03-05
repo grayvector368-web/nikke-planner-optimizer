@@ -550,6 +550,13 @@ def solve_ilp(
         prob += g3 <= c[b, 2]
     prob += g3 <= g2  # can't unlock L3 without L2
 
+    # Assignment gating: can only assign teams to a level if it's unlocked.
+    # This prevents wasting hits on L3 when L2 isn't cleared (CBC would
+    # otherwise freely assign leftover teams to L3 since they score 0 either way).
+    for i in range(n):
+        prob += x[i, 2] <= g2  # can't hit L2 unless all L1 cleared
+        prob += x[i, 3] <= g3  # can't hit L3 unless all L2 cleared
+
     # Scored effective damage (only counts when gate is open)
     es: Dict[Tuple[str, int], pulp.LpVariable] = {}
     for b in boss_names:

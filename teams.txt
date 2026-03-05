@@ -94,3 +94,6 @@ BX	640	Iron	1	14,519,394,169	Liter	Crown	RRH	Red Hood	Helm		2,036,793
 RYOTAME	632	Iron	2	18,485,380,578	Crown	RRH	Siren	Raven	M.Mast		1,843,097
 RYOTAME	632	Electric	2	17,838,888,723	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		1,838,483
 RYOTAME	632	Fire	2	17,103,636,218	Liter	X.Brid	Helm	X.Diesel	Mih:bc		1,875,191
+DER	632	Electric	2	17,838,888,723	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		1,838,483
+SAL	632	Electric	2	17,838,888,723	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		1,838,483
+LO	632	Electric	2	17,838,888,723	Cinderella	Rouge	X.Maiden	B.Ade	S.Anis		1,838,483
