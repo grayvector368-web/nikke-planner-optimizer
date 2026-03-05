@@ -236,39 +236,39 @@ def _init_state():
     if "boss_rows" not in st.session_state:
         st.session_state.boss_rows = [
             {
-                "name": "Latiance",
+                "name": "Porter",
+                "hp1": 99_856_279_200,
+                "hp2": 149_784_418_800,
+                "hp3": 292_445_295_750,
+                "element": "iron",
+            },
+            {
+                "name": "Plate",
+                "hp1": 99_856_279_200,
+                "hp2": 149_784_418_800,
+                "hp3": 292_445_295_750,
+                "element": "water",
+            },
+            {
+                "name": "Land Eater",
+                "hp1": 150_841_813_600,
+                "hp2": 226_262_720_400,
+                "hp3": 292_445_295_750,
+                "element": "electric",
+            },
+            {
+                "name": "Rebuild Fingers",
                 "hp1": 99_856_279_200,
                 "hp2": 149_784_418_800,
                 "hp3": 292_445_295_750,
                 "element": "fire",
             },
             {
-                "name": "Fingers",
-                "hp1": 99_856_279_200,
-                "hp2": 149_784_418_800,
-                "hp3": 292_445_295_750,
-                "element": "wind",
-            },
-            {
-                "name": "Grave Digger",
-                "hp1": 150_841_813_600,
-                "hp2": 226_262_720_400,
-                "hp3": 292_445_295_750,
-                "element": "iron",
-            },
-            {
-                "name": "Rebuild Stout",
-                "hp1": 99_856_279_200,
-                "hp2": 149_784_418_800,
-                "hp3": 292_445_295_750,
-                "element": "electric",
-            },
-            {
-                "name": "Black Smith",
+                "name": "Material H",
                 "hp1": 150_841_813_600,
                 "hp2": 226_262_720_400,
                 "hp3": 349_230_901_500,
-                "element": "water",
+                "element": "wind",
             },
         ]
     if "teams" not in st.session_state:
@@ -388,39 +388,39 @@ with tab_bosses:
         if st.button("Reset to defaults", use_container_width=True):
             st.session_state.boss_rows = [
                 {
-                    "name": "Latiance",
+                    "name": "Porter",
+                    "hp1": 99_856_279_200,
+                    "hp2": 149_784_418_800,
+                    "hp3": 292_445_295_750,
+                    "element": "iron",
+                },
+                {
+                    "name": "Plate",
+                    "hp1": 99_856_279_200,
+                    "hp2": 149_784_418_800,
+                    "hp3": 292_445_295_750,
+                    "element": "water",
+                },
+                {
+                    "name": "Land Eater",
+                    "hp1": 150_841_813_600,
+                    "hp2": 226_262_720_400,
+                    "hp3": 292_445_295_750,
+                    "element": "electric",
+                },
+                {
+                    "name": "Rebuild Fingers",
                     "hp1": 99_856_279_200,
                     "hp2": 149_784_418_800,
                     "hp3": 292_445_295_750,
                     "element": "fire",
                 },
                 {
-                    "name": "Fingers",
-                    "hp1": 99_856_279_200,
-                    "hp2": 149_784_418_800,
-                    "hp3": 292_445_295_750,
-                    "element": "wind",
-                },
-                {
-                    "name": "Grave Digger",
-                    "hp1": 150_841_813_600,
-                    "hp2": 226_262_720_400,
-                    "hp3": 292_445_295_750,
-                    "element": "iron",
-                },
-                {
-                    "name": "Rebuild Stout",
-                    "hp1": 99_856_279_200,
-                    "hp2": 149_784_418_800,
-                    "hp3": 292_445_295_750,
-                    "element": "electric",
-                },
-                {
-                    "name": "Black Smith",
+                    "name": "Material H",
                     "hp1": 150_841_813_600,
                     "hp2": 226_262_720_400,
                     "hp3": 349_230_901_500,
-                    "element": "water",
+                    "element": "wind",
                 },
             ]
             st.rerun()
