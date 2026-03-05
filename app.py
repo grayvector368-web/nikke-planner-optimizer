@@ -273,6 +273,8 @@ def _init_state():
         ]
     if "teams" not in st.session_state:
         st.session_state.teams = []
+    if "manual_rows" not in st.session_state:
+        st.session_state.manual_rows = []
     if "run_result" not in st.session_state:
         st.session_state.run_result = None
 
@@ -320,10 +322,10 @@ with st.sidebar:
 
     if PULP_AVAILABLE:
         time_limit = st.number_input(
-            "ILP time limit (s)", min_value=10, max_value=600, value=60, step=10
+            "ILP time limit (s)", min_value=10, max_value=600, value=120, step=10
         )
     else:
-        time_limit = 60
+        time_limit = 120
 
     st.divider()
     st.subheader("Score Weights")
@@ -575,8 +577,9 @@ with tab_teams:
 
     input_mode = st.radio(
         "Input method",
-        ["Paste teams.txt (raw)", "Upload teams.csv"],
+        ["Paste teams.txt (raw)", "Upload teams.csv", "Manual Entry"],
         horizontal=True,
+        key="teams_input_mode",
     )
 
     if input_mode == "Paste teams.txt (raw)":
@@ -616,7 +619,7 @@ with tab_teams:
                         "Check your input and the boss element mapping."
                     )
 
-    else:
+    elif input_mode == "Upload teams.csv":
         uploaded_teams = st.file_uploader(
             "Upload teams.csv",
             type=["csv"],
@@ -662,6 +665,171 @@ with tab_teams:
                         st.error("No valid team entries found in the uploaded CSV.")
             except Exception as e:
                 st.error(f"Failed to load teams.csv: {e}")
+
+    else:  # Manual Entry
+        boss_names = [
+            r["name"] for r in st.session_state.boss_rows if r["name"].strip()
+        ]
+
+        if not boss_names:
+            st.warning("No bosses configured. Set up bosses in the Bosses tab first.")
+        else:
+            # Auto-populate from existing teams on first visit
+            if not st.session_state.manual_rows and st.session_state.teams:
+                st.session_state.manual_rows = [
+                    {
+                        "member": t.member,
+                        "boss_name": t.boss_name,
+                        "damage": str(t.damage),
+                        "unit1": t.units[0] if len(t.units) > 0 else "",
+                        "unit2": t.units[1] if len(t.units) > 1 else "",
+                        "unit3": t.units[2] if len(t.units) > 2 else "",
+                        "unit4": t.units[3] if len(t.units) > 3 else "",
+                        "unit5": t.units[4] if len(t.units) > 4 else "",
+                    }
+                    for t in st.session_state.teams
+                ]
+
+            # Header row
+            h0, h1, h2, h3, h4, h5, h6, h7, h8 = st.columns(
+                [2, 2, 2, 1, 1, 1, 1, 1, 0.4]
+            )
+            h0.markdown("**Member**")
+            h1.markdown("**Boss**")
+            h2.markdown("**Damage**")
+            h3.markdown("**Unit 1**")
+            h4.markdown("**Unit 2**")
+            h5.markdown("**Unit 3**")
+            h6.markdown("**Unit 4**")
+            h7.markdown("**Unit 5**")
+
+            delete_idx = None
+            updated_rows = []
+
+            for i, row in enumerate(st.session_state.manual_rows):
+                c0, c1, c2, c3, c4, c5, c6, c7, c8 = st.columns(
+                    [2, 2, 2, 1, 1, 1, 1, 1, 0.4]
+                )
+                member = c0.text_input(
+                    "Member",
+                    value=row["member"],
+                    key=f"me_member_{i}",
+                    label_visibility="collapsed",
+                    placeholder="Member name",
+                )
+                boss_idx = (
+                    boss_names.index(row["boss_name"])
+                    if row["boss_name"] in boss_names
+                    else 0
+                )
+                boss_name = c1.selectbox(
+                    "Boss",
+                    boss_names,
+                    index=boss_idx,
+                    key=f"me_boss_{i}",
+                    label_visibility="collapsed",
+                )
+                damage_str = c2.text_input(
+                    "Damage",
+                    value=row["damage"],
+                    key=f"me_damage_{i}",
+                    label_visibility="collapsed",
+                    placeholder="30000000000",
+                )
+                unit1 = c3.text_input(
+                    "U1",
+                    value=row["unit1"],
+                    key=f"me_u1_{i}",
+                    label_visibility="collapsed",
+                    placeholder="Unit 1",
+                )
+                unit2 = c4.text_input(
+                    "U2",
+                    value=row["unit2"],
+                    key=f"me_u2_{i}",
+                    label_visibility="collapsed",
+                    placeholder="Unit 2",
+                )
+                unit3 = c5.text_input(
+                    "U3",
+                    value=row["unit3"],
+                    key=f"me_u3_{i}",
+                    label_visibility="collapsed",
+                    placeholder="Unit 3",
+                )
+                unit4 = c6.text_input(
+                    "U4",
+                    value=row["unit4"],
+                    key=f"me_u4_{i}",
+                    label_visibility="collapsed",
+                    placeholder="Unit 4",
+                )
+                unit5 = c7.text_input(
+                    "U5",
+                    value=row["unit5"],
+                    key=f"me_u5_{i}",
+                    label_visibility="collapsed",
+                    placeholder="Unit 5",
+                )
+                if c8.button("✕", key=f"me_del_{i}", help="Delete this row"):
+                    delete_idx = i
+
+                updated_rows.append(
+                    {
+                        "member": member,
+                        "boss_name": boss_name,
+                        "damage": damage_str,
+                        "unit1": unit1,
+                        "unit2": unit2,
+                        "unit3": unit3,
+                        "unit4": unit4,
+                        "unit5": unit5,
+                    }
+                )
+
+            if delete_idx is not None:
+                st.session_state.manual_rows.pop(delete_idx)
+                st.rerun()
+            else:
+                st.session_state.manual_rows = updated_rows
+
+            if st.button("+ Add Team", use_container_width=True):
+                st.session_state.manual_rows.append(
+                    {
+                        "member": "",
+                        "boss_name": boss_names[0],
+                        "damage": "",
+                        "unit1": "",
+                        "unit2": "",
+                        "unit3": "",
+                        "unit4": "",
+                        "unit5": "",
+                    }
+                )
+                st.rerun()
+
+            # Parse and sync to teams
+            parse_errors = []
+            new_teams = []
+            for i, row in enumerate(st.session_state.manual_rows):
+                if not row["member"].strip():
+                    continue
+                try:
+                    dmg = int(row["damage"].replace(",", "").replace(".", ""))
+                except ValueError:
+                    parse_errors.append(
+                        f"Row {i + 1} ({row['member']}): invalid damage '{row['damage']}'"
+                    )
+                    continue
+                units = [row[f"unit{j}"] for j in range(1, 6)]
+                new_teams.append(
+                    Team(row["member"].strip(), row["boss_name"], dmg, units)
+                )
+
+            st.session_state.teams = new_teams
+            if parse_errors:
+                for e in parse_errors:
+                    st.warning(e)
 
     # Preview loaded teams
     if st.session_state.teams:
