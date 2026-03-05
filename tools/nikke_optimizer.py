@@ -609,9 +609,15 @@ def solve_ilp(
             _solver = pulp.PULP_CBC_CMD(timeLimit=time_limit, msg=0, gapRel=0)
     prob.solve(_solver)
 
-    if prob.status not in (1, -2):
+    optimal = prob.status == 1
+    status_str = pulp.LpStatus.get(prob.status, str(prob.status))
+    has_solution = pulp.value(prob.objective) is not None
+    timed_out = not optimal and has_solution
+
+    if not optimal:
         print(
-            f"[WARNING] ILP status: {pulp.LpStatus[prob.status]}",
+            f"[WARNING] ILP status: {status_str}"
+            + (" (time limit reached — solution may be suboptimal)" if timed_out else ""),
             file=sys.stderr,
         )
 
@@ -622,7 +628,8 @@ def solve_ilp(
             if pulp.value(x[i, l]) is not None and pulp.value(x[i, l]) > 0.5:
                 assignments.append((teams[i], l))
 
-    return assignments
+    ilp_info = {"optimal": optimal, "status_str": status_str, "timed_out": timed_out}
+    return assignments, ilp_info
 
 
 def apply_buffer(teams: List[Team], buffer_pct: float) -> List[Team]:
@@ -1012,8 +1019,10 @@ def main():
 
     # Solve
     if solver == "ilp":
-        assignments = solve_ilp(teams, bosses, weights, args.max_hits, args.time_limit)
-        solver_label = "ILP (PuLP/CBC)"
+        assignments, ilp_info = solve_ilp(teams, bosses, weights, args.max_hits, args.time_limit)
+        if ilp_info["timed_out"]:
+            print(f"[WARNING] CBC hit the time limit ({args.time_limit}s) — solution is suboptimal. Increase --time-limit.", file=sys.stderr)
+        solver_label = "ILP (PuLP/CBC)" + ("" if ilp_info["optimal"] else " [SUBOPTIMAL]")
     else:
         assignments = solve_greedy(teams, bosses, weights, args.max_hits)
         solver_label = "Greedy (phase-based)"

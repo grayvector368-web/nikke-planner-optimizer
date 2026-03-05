@@ -922,15 +922,19 @@ with tab_run:
                         and PULP_AVAILABLE
                         and solve_ilp is not None
                     ):
-                        assignments = solve_ilp(
+                        assignments, ilp_info = solve_ilp(
                             teams_buffered,
                             bosses,
                             weights,
                             int(max_hits),
                             int(time_limit),
                         )
-                        solver_label = "ILP (PuLP/CBC)"
+                        if ilp_info["optimal"]:
+                            solver_label = "ILP (PuLP/CBC)"
+                        else:
+                            solver_label = f"ILP (PuLP/CBC) [SUBOPTIMAL — {ilp_info['status_str']}]"
                     else:
+                        ilp_info = {"optimal": True, "status_str": "", "timed_out": False}
                         assignments = solve_greedy(
                             teams_buffered, bosses, weights, int(max_hits)
                         )
@@ -967,6 +971,12 @@ with tab_run:
                         generated_at,
                     )
 
+                    ilp_timed_out = (
+                        actual_solver == "ilp"
+                        and PULP_AVAILABLE
+                        and solve_ilp is not None
+                        and not ilp_info.get("optimal", True)
+                    )
                     st.session_state.run_result = {
                         "assignments": display_assignments,
                         "bosses": bosses,
@@ -977,6 +987,8 @@ with tab_run:
                         "html": html_content,
                         "all_teams": display_teams,
                         "max_hits": int(max_hits),
+                        "ilp_timed_out": ilp_timed_out,
+                        "ilp_status": ilp_info.get("status_str", "") if actual_solver == "ilp" else "",
                     }
                 except Exception as e:
                     st.error(f"Optimizer failed: {e}")
@@ -996,6 +1008,16 @@ with tab_run:
             max_hits_r = result["max_hits"]
 
             st.divider()
+
+            # CBC timeout banner
+            if result.get("ilp_timed_out"):
+                st.warning(
+                    f"CBC hit the time limit and returned a **suboptimal** solution "
+                    f"(status: {result['ilp_status']}). "
+                    "The plan below is the best CBC found within the time limit, but a better assignment may exist. "
+                    "Increase the **ILP time limit** in the sidebar and re-run.",
+                    icon="⚠️",
+                )
 
             # Violations banner
             if violations:
