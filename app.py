@@ -276,6 +276,8 @@ def _init_state():
         st.session_state.teams = []
     if "manual_rows" not in st.session_state:
         st.session_state.manual_rows = []
+    if "_row_id_counter" not in st.session_state:
+        st.session_state._row_id_counter = 0
     if "run_result" not in st.session_state:
         st.session_state.run_result = None
 
@@ -675,10 +677,15 @@ with tab_teams:
         if not boss_names:
             st.warning("No bosses configured. Set up bosses in the Bosses tab first.")
         else:
+            def _new_id() -> int:
+                st.session_state._row_id_counter += 1
+                return st.session_state._row_id_counter
+
             # Auto-populate from existing teams on first visit
             if not st.session_state.manual_rows and st.session_state.teams:
                 st.session_state.manual_rows = [
                     {
+                        "_id": _new_id(),
                         "member": t.member,
                         "boss_name": t.boss_name,
                         "damage": str(t.damage),
@@ -706,18 +713,23 @@ with tab_teams:
             h6.markdown("**Unit 4**")
             h7.markdown("**Unit 5**")
 
-            delete_idx = None
+            def _delete_row(row_id: int):
+                st.session_state.manual_rows = [
+                    r for r in st.session_state.manual_rows if r["_id"] != row_id
+                ]
+
             updated_rows = []
             any_dummy = False
 
-            for i, row in enumerate(st.session_state.manual_rows):
+            for row in st.session_state.manual_rows:
+                rid = row["_id"]
                 c0, c1, c2, cd, c3, c4, c5, c6, c7, c8 = st.columns(
                     [2, 2, 2, 0.7, 1, 1, 1, 1, 1, 0.4]
                 )
                 member = c0.text_input(
                     "Member",
                     value=row["member"],
-                    key=f"me_member_{i}",
+                    key=f"me_member_{rid}",
                     label_visibility="collapsed",
                     placeholder="Member name",
                 )
@@ -730,20 +742,20 @@ with tab_teams:
                     "Boss",
                     boss_names,
                     index=boss_idx,
-                    key=f"me_boss_{i}",
+                    key=f"me_boss_{rid}",
                     label_visibility="collapsed",
                 )
                 damage_str = c2.text_input(
                     "Damage",
                     value=row["damage"],
-                    key=f"me_damage_{i}",
+                    key=f"me_damage_{rid}",
                     label_visibility="collapsed",
                     placeholder="30000000000",
                 )
                 is_dummy = cd.checkbox(
                     "Dummy",
                     value=row.get("dummy", False),
-                    key=f"me_dummy_{i}",
+                    key=f"me_dummy_{rid}",
                     label_visibility="collapsed",
                 )
                 if is_dummy:
@@ -751,7 +763,7 @@ with tab_teams:
                 unit1 = c3.text_input(
                     "U1",
                     value=row["unit1"],
-                    key=f"me_u1_{i}",
+                    key=f"me_u1_{rid}",
                     label_visibility="collapsed",
                     placeholder="Unit 1",
                     disabled=is_dummy,
@@ -759,7 +771,7 @@ with tab_teams:
                 unit2 = c4.text_input(
                     "U2",
                     value=row["unit2"],
-                    key=f"me_u2_{i}",
+                    key=f"me_u2_{rid}",
                     label_visibility="collapsed",
                     placeholder="Unit 2",
                     disabled=is_dummy,
@@ -767,7 +779,7 @@ with tab_teams:
                 unit3 = c5.text_input(
                     "U3",
                     value=row["unit3"],
-                    key=f"me_u3_{i}",
+                    key=f"me_u3_{rid}",
                     label_visibility="collapsed",
                     placeholder="Unit 3",
                     disabled=is_dummy,
@@ -775,7 +787,7 @@ with tab_teams:
                 unit4 = c6.text_input(
                     "U4",
                     value=row["unit4"],
-                    key=f"me_u4_{i}",
+                    key=f"me_u4_{rid}",
                     label_visibility="collapsed",
                     placeholder="Unit 4",
                     disabled=is_dummy,
@@ -783,16 +795,22 @@ with tab_teams:
                 unit5 = c7.text_input(
                     "U5",
                     value=row["unit5"],
-                    key=f"me_u5_{i}",
+                    key=f"me_u5_{rid}",
                     label_visibility="collapsed",
                     placeholder="Unit 5",
                     disabled=is_dummy,
                 )
-                if c8.button("✕", key=f"me_del_{i}", help="Delete this row"):
-                    delete_idx = i
+                c8.button(
+                    "✕",
+                    key=f"me_del_{rid}",
+                    help="Delete this row",
+                    on_click=_delete_row,
+                    args=(rid,),
+                )
 
                 updated_rows.append(
                     {
+                        "_id": rid,
                         "member": member,
                         "boss_name": boss_name,
                         "damage": damage_str,
@@ -813,17 +831,15 @@ with tab_teams:
                     icon="⚠️",
                 )
 
-            if delete_idx is not None:
-                st.session_state.manual_rows.pop(delete_idx)
-                st.rerun()
-            else:
-                st.session_state.manual_rows = updated_rows
+            st.session_state.manual_rows = updated_rows
 
-            if st.button("+ Add Team", use_container_width=True):
+            def _add_row():
+                st.session_state._row_id_counter += 1
                 st.session_state.manual_rows.append(
                     {
+                        "_id": st.session_state._row_id_counter,
                         "member": "",
-                        "boss_name": boss_names[0],
+                        "boss_name": st.session_state.boss_rows[0]["name"] if st.session_state.boss_rows else "",
                         "damage": "",
                         "unit1": "",
                         "unit2": "",
@@ -833,23 +849,24 @@ with tab_teams:
                         "dummy": False,
                     }
                 )
-                st.rerun()
+
+            st.button("+ Add Team", use_container_width=True, on_click=_add_row)
 
             # Parse and sync to teams
             parse_errors = []
             new_teams = []
-            for i, row in enumerate(st.session_state.manual_rows):
+            for row in st.session_state.manual_rows:
                 if not row["member"].strip():
                     continue
                 try:
                     dmg = int(row["damage"].replace(",", "").replace(".", ""))
                 except ValueError:
                     parse_errors.append(
-                        f"Row {i + 1} ({row['member']}): invalid damage '{row['damage']}'"
+                        f"({row['member']}): invalid damage '{row['damage']}'"
                     )
                     continue
                 if row.get("dummy"):
-                    units = [f"_dummy_{i}_u{j}" for j in range(1, 6)]
+                    units = [f"_dummy_{row['_id']}_u{j}" for j in range(1, 6)]
                 else:
                     units = [row[f"unit{j}"] for j in range(1, 6)]
                 new_teams.append(
