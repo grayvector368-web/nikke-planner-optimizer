@@ -98,6 +98,7 @@ The element column is mapped to the matching boss via the **element weakness** f
 """
 
 
+
 def split_line(line: str) -> list[str]:
     """Split on tab, falling back to 2+ spaces."""
     if "\t" in line:
@@ -686,17 +687,19 @@ with tab_teams:
                         "unit3": t.units[2] if len(t.units) > 2 else "",
                         "unit4": t.units[3] if len(t.units) > 3 else "",
                         "unit5": t.units[4] if len(t.units) > 4 else "",
+                        "dummy": False,
                     }
                     for t in st.session_state.teams
                 ]
 
             # Header row
-            h0, h1, h2, h3, h4, h5, h6, h7, h8 = st.columns(
-                [2, 2, 2, 1, 1, 1, 1, 1, 0.4]
+            h0, h1, h2, hd, h3, h4, h5, h6, h7, h8 = st.columns(
+                [2, 2, 2, 0.7, 1, 1, 1, 1, 1, 0.4]
             )
             h0.markdown("**Member**")
             h1.markdown("**Boss**")
             h2.markdown("**Damage**")
+            hd.markdown("**Dummy**")
             h3.markdown("**Unit 1**")
             h4.markdown("**Unit 2**")
             h5.markdown("**Unit 3**")
@@ -705,10 +708,11 @@ with tab_teams:
 
             delete_idx = None
             updated_rows = []
+            any_dummy = False
 
             for i, row in enumerate(st.session_state.manual_rows):
-                c0, c1, c2, c3, c4, c5, c6, c7, c8 = st.columns(
-                    [2, 2, 2, 1, 1, 1, 1, 1, 0.4]
+                c0, c1, c2, cd, c3, c4, c5, c6, c7, c8 = st.columns(
+                    [2, 2, 2, 0.7, 1, 1, 1, 1, 1, 0.4]
                 )
                 member = c0.text_input(
                     "Member",
@@ -736,12 +740,21 @@ with tab_teams:
                     label_visibility="collapsed",
                     placeholder="30000000000",
                 )
+                is_dummy = cd.checkbox(
+                    "Dummy",
+                    value=row.get("dummy", False),
+                    key=f"me_dummy_{i}",
+                    label_visibility="collapsed",
+                )
+                if is_dummy:
+                    any_dummy = True
                 unit1 = c3.text_input(
                     "U1",
                     value=row["unit1"],
                     key=f"me_u1_{i}",
                     label_visibility="collapsed",
                     placeholder="Unit 1",
+                    disabled=is_dummy,
                 )
                 unit2 = c4.text_input(
                     "U2",
@@ -749,6 +762,7 @@ with tab_teams:
                     key=f"me_u2_{i}",
                     label_visibility="collapsed",
                     placeholder="Unit 2",
+                    disabled=is_dummy,
                 )
                 unit3 = c5.text_input(
                     "U3",
@@ -756,6 +770,7 @@ with tab_teams:
                     key=f"me_u3_{i}",
                     label_visibility="collapsed",
                     placeholder="Unit 3",
+                    disabled=is_dummy,
                 )
                 unit4 = c6.text_input(
                     "U4",
@@ -763,6 +778,7 @@ with tab_teams:
                     key=f"me_u4_{i}",
                     label_visibility="collapsed",
                     placeholder="Unit 4",
+                    disabled=is_dummy,
                 )
                 unit5 = c7.text_input(
                     "U5",
@@ -770,6 +786,7 @@ with tab_teams:
                     key=f"me_u5_{i}",
                     label_visibility="collapsed",
                     placeholder="Unit 5",
+                    disabled=is_dummy,
                 )
                 if c8.button("✕", key=f"me_del_{i}", help="Delete this row"):
                     delete_idx = i
@@ -784,7 +801,16 @@ with tab_teams:
                         "unit3": unit3,
                         "unit4": unit4,
                         "unit5": unit5,
+                        "dummy": is_dummy,
                     }
+                )
+
+            if any_dummy:
+                st.warning(
+                    "Dummy teams use auto-generated placeholder unit names — they will never "
+                    "conflict with real units, but also won't enforce uniqueness between dummy rows "
+                    "from the same member. Only use this for teams you're certain won't share units.",
+                    icon="⚠️",
                 )
 
             if delete_idx is not None:
@@ -804,6 +830,7 @@ with tab_teams:
                         "unit3": "",
                         "unit4": "",
                         "unit5": "",
+                        "dummy": False,
                     }
                 )
                 st.rerun()
@@ -821,7 +848,10 @@ with tab_teams:
                         f"Row {i + 1} ({row['member']}): invalid damage '{row['damage']}'"
                     )
                     continue
-                units = [row[f"unit{j}"] for j in range(1, 6)]
+                if row.get("dummy"):
+                    units = [f"_dummy_{i}_u{j}" for j in range(1, 6)]
+                else:
+                    units = [row[f"unit{j}"] for j in range(1, 6)]
                 new_teams.append(
                     Team(row["member"].strip(), row["boss_name"], dmg, units)
                 )
